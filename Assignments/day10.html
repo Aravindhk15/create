@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Tasks</title>
+
+    <style>
+        /* 1. Width 300px, padding 20px, green border 10px */
+        .task1 {
+            width: 300px;
+            padding: 20px;
+            border: 10px solid green;
+        }
+
+        /* 2. Div width 200px */
+        .task2 {
+            width: 200px;
+        }
+
+        /* 3. 2px solid red border */
+        .task3 {
+            border: 2px solid red;
+        }
+
+        /* 4. 25px space between border and content */
+        .task4 {
+            padding: 25px;
+            border: 2px solid black;
+        }
+
+        /* 5. 25px space outside on the left */
+        .task5 {
+            margin-left: 25px;
+            border: 2px solid blue;
+        }
+
+        /* 9. 600px wide and centered */
+        .task9 {
+            width: 600px;
+            padding: 20px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+
+        /* 10. Three equal-sized buttons */
+        .container {
+            width: 600px;
+            display: flex;
+        }
+
+        .container button {
+            width: 200px;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        /* 11. Different padding on each side */
+        .task11 {
+            padding: 40px 10px 20px 50px;
+            border: 2px solid purple;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Box Model Tasks</h1>
+
+    <h2>1. Width, Padding and Border</h2>
+    <div class="task1">
+        Width = 300px, Padding = 20px, Border = 10px green
+    </div>
+
+    <h2>2. Div Width = 200px</h2>
+    <div class="task2">
+        This div has a width of 200px.
+    </div>
+
+    <h2>3. Red Border</h2>
+    <div class="task3">
+        This div has a 2px solid red border.
+    </div>
+
+    <h2>4. Padding = 25px</h2>
+    <div class="task4">
+        This content has 25px padding.
+    </div>
+
+    <h2>5. Left Margin = 25px</h2>
+    <div class="task5">
+        This div has 25px margin on the left.
+    </div>
+
+    <h2>6. Box Model Formula</h2>
+    <p>
+        Total Width = Content Width + Left Padding + Right Padding
+        + Left Border + Right Border + Left Margin + Right Margin
+    </p>
+
+    <h2>7. Total Height</h2>
+    <p>
+        Height = 50px<br>
+        Padding = 15px + 15px<br>
+        Border = 5px + 5px
+    </p>
+    <p>
+        Total Height = 50 + 15 + 15 + 5 + 5 = <strong>90px</strong>
+    </p>
+
+    <h2>8. Total Width</h2>
+    <p>
+        Width = 300px<br>
+        Padding = 20px + 20px<br>
+        Border = 5px + 5px<br>
+        Margin = 10px + 10px
+    </p>
+    <p>
+        Total Width = 300 + 20 + 20 + 5 + 5 + 10 + 10
+        = <strong>370px</strong>
+    </p>
+
+    <h2>9. Centered 600px Div</h2>
+    <div class="task9">
+        This div is 600px wide and horizontally centered.
+    </div>
+
+    <h2>10. Three Equal-Sized Buttons</h2>
+    <div class="container">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+    </div>
+
+    <h2>11. Different Padding on Each Side</h2>
+    <div class="task11">
+        This text has different padding on each side.
+    </div>
+
+</body>
+</html>
