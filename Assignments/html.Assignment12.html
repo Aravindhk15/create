@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Positioning Tasks</title>
+
+    <style>
+
+        /* =====================================
+           GENERAL PAGE STYLE
+           ===================================== */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            margin-top: 30px;
+            color: #333;
+        }
+
+
+        /* =====================================
+           TASK 1: HORIZONTAL MENU
+           display: inline-block
+           ===================================== */
+
+        .menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .menu li {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: lightblue;
+            border: 1px solid blue;
+        }
+
+
+        /* =====================================
+           TASK 2: PROFILE HEADER
+           Relative + Absolute
+           ===================================== */
+
+        .banner {
+            position: relative;
+
+            width: 100%;
+            height: 200px;
+
+            background-color: lightblue;
+            border: 2px solid blue;
+
+            margin-top: 20px;
+            margin-bottom: 80px;
+        }
+
+        .profile-pic {
+            position: absolute;
+
+            width: 80px;
+            height: 80px;
+
+            left: 20px;
+            bottom: -40px;
+
+            background-color: orange;
+            border: 4px solid white;
+            border-radius: 50%;
+        }
+
+
+        /* =====================================
+           TASK 3: CENTERED BLOCK
+           margin: 0 auto
+           ===================================== */
+
+        .box {
+            width: 50%;
+
+            border: 2px solid black;
+
+            padding: 20px;
+
+            margin: 0 auto;
+
+            display: block;
+
+            text-align: center;
+
+            background-color: lightyellow;
+        }
+
+
+        /* =====================================
+           TASK 4: FIXED NOTIFICATION
+           ===================================== */
+
+        .notification {
+            position: fixed;
+
+            bottom: 20px;
+            right: 20px;
+
+            padding: 15px 25px;
+
+            background-color: green;
+            color: white;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================
+           EXTRA CONTENT
+           Used to create scrolling
+           ===================================== */
+
+        .content {
+            margin-top: 40px;
+            line-height: 1.8;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         TASK 1
+         HORIZONTAL MENU
+         ===================================== -->
+
+    <h1>Task 1: Horizontal Menu</h1>
+
+    <ul class="menu">
+        <li>Home</li><li>About</li><li>Services</li><li>Gallery</li><li>Contact</li>
+    </ul>
+
+
+    <!-- =====================================
+         TASK 2
+         PROFILE HEADER
+         ===================================== -->
+
+    <h1>Task 2: Profile Header</h1>
+
+    <div class="banner">
+
+        <div class="profile-pic">
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         TASK 3
+         CENTERED BLOCK
+         ===================================== -->
+
+    <h1>Task 3: Centered Block</h1>
+
+    <div class="box">
+
+        This is a centered box.
+
+        <br><br>
+
+        It is centered horizontally using
+        <strong>margin: 0 auto;</strong>
+
+        <br><br>
+
+        This method does not center the box vertically.
+
+    </div>
+
+
+    <!-- =====================================
+         TASK 4
+         FIXED NOTIFICATION
+         ===================================== -->
+
+    <h1>Task 4: Fixed Notification</h1>
+
+    <div class="content">
+
+        <p>
+            This page contains extra content so that you can scroll.
+        </p>
+
+        <p>
+            The notification at the bottom-right corner stays fixed
+            even when the page is scrolled.
+        </p>
+
+        <p>
+            CSS positioning is used to control the location of elements
+            on a webpage.
+        </p>
+
+        <p>
+            Position relative creates a reference point for an
+            absolutely positioned element.
+        </p>
+
+        <p>
+            Position absolute allows an element to be positioned
+            relative to its nearest positioned parent.
+        </p>
+
+        <p>
+            Position fixed keeps an element attached to the browser
+            window.
+        </p>
+
+        <p>
+            Scroll down to see how the notification remains in the
+            same position.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec vitae libero vel ipsum tincidunt tincidunt.
+        </p>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Suspendisse potenti.
+        </p>
+
+        <p>
+            Integer euismod neque at consequat tincidunt.
+        </p>
+
+        <p>
+            This is additional content to make the webpage longer.
+        </p>
+
+        <p>
+            Keep scrolling to test the fixed notification.
+        </p>
+
+        <p>
+            The notification will always remain 20px from the bottom
+            and 20px from the right.
+        </p>
+
+        <p>
+            End of the webpage.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================
+         FIXED NOTIFICATION
+         ===================================== -->
+
+    <div class="notification">
+        Update Available.
+    </div>
+
+
+</body>
+</html>
