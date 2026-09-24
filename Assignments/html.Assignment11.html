@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Block and Centered Box</title>
+
+    <style>
+        /* =========================
+           Task 1: Horizontal Menu
+           ========================= */
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: lightblue;
+            border: 1px solid blue;
+        }
+
+        /* =========================
+           Task 3: Centered Block
+           ========================= */
+
+        .box {
+            width: 50%;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 30px auto;
+            display: block;
+            text-align: center;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Task 1: Horizontal Menu -->
+
+    <h1>Horizontal Menu</h1>
+
+    <ul>
+        <li>Home</li><li>About</li><li>Services</li><li>Gallery</li><li>Contact</li>
+    </ul>
+
+
+    <!-- Task 3: Centered Block -->
+
+    <h1>Centered Block</h1>
+
+    <div class="box">
+        This is a centered box.
+        <br>
+        It is centered horizontally using margin: 0 auto;
+    </div>
+
+</body>
+</html>
