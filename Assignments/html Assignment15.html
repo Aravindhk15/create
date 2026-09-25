@@ -1,0 +1,391 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Responsive Design Tasks</title>
+
+    <style>
+
+        /* ==============================
+           GENERAL STYLING
+        ============================== */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: white;
+        }
+
+        section {
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+
+        /* ==============================
+           TASK 1
+           80% WIDTH, MAX 600px
+        ============================== */
+
+        .box {
+            width: 80%;
+            max-width: 600px;
+            height: 150px;
+
+            margin: auto;
+
+            background-color: lightblue;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 20px;
+        }
+
+
+        /* ==============================
+           TASK 2
+           REM FONT SIZE
+        ============================== */
+
+        .rem-text {
+            font-size: 1.5rem;
+        }
+
+
+        /* ==============================
+           TASK 3
+           VW HEADING
+        ============================== */
+
+        .vw-heading {
+            font-size: 5vw;
+            text-align: center;
+        }
+
+
+        /* ==============================
+           TASK 4
+           DIFFERENT FONT FAMILIES
+        ============================== */
+
+        .font1 {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        .font2 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+        }
+
+        .font3 {
+            font-family: "Courier New", monospace;
+            font-size: 18px;
+        }
+
+        .font4 {
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 22px;
+        }
+
+
+        /* ==============================
+           TASK 5
+           BELOW 768px
+        ============================== */
+
+        .task5 {
+            background-color: lightgreen;
+        }
+
+        @media (max-width: 767px) {
+
+            .task5 {
+                background-color: lightcoral;
+            }
+
+        }
+
+
+        /* ==============================
+           TASK 6
+           DIFFERENT DEVICES
+        ============================== */
+
+        .device-box {
+            padding: 30px;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        /* Mobile devices */
+        @media (max-width: 767px) {
+
+            .device-box {
+                background-color: lightpink;
+            }
+
+        }
+
+        /* Tablet devices */
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            .device-box {
+                background-color: lightyellow;
+            }
+
+        }
+
+        /* Desktop devices */
+        @media (min-width: 1024px) {
+
+            .device-box {
+                background-color: lightgreen;
+            }
+
+        }
+
+
+        /* ==============================
+           TASK 7
+           RESPONSIVE GRID
+        ============================== */
+
+        .grid {
+            display: grid;
+
+            /* Default: 4 columns */
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .grid-item {
+            background-color: steelblue;
+            color: white;
+
+            padding: 30px;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            border-radius: 5px;
+        }
+
+
+        /* Mobile:
+           1 column
+        */
+
+        @media (max-width: 767px) {
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        /* Tablet:
+           2 columns
+        */
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* Large desktop:
+           4 columns
+        */
+
+        @media (min-width: 1024px) {
+
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =================================
+         TASK 1
+    ================================== -->
+
+    <section>
+
+        <h2>Task 1: 80% Width Box</h2>
+
+        <div class="box">
+            80% Width - Maximum 600px
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 2
+    ================================== -->
+
+    <section>
+
+        <h2>Task 2: REM Font Size</h2>
+
+        <p class="rem-text">
+            This paragraph has a font size of 1.5rem.
+        </p>
+
+        <p>
+            1.5rem is relative to the root HTML font size.
+            If the default root font size is 16px,
+            then 1.5rem = 24px.
+        </p>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 3
+    ================================== -->
+
+    <section>
+
+        <h2 class="vw-heading">
+            Responsive VW Heading
+        </h2>
+
+        <p>
+            This heading uses 5vw.
+            Its size changes according to the screen width.
+        </p>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 4
+    ================================== -->
+
+    <section>
+
+        <h2>Task 4: Different Fonts</h2>
+
+        <p class="font1">
+            This text uses Arial font.
+        </p>
+
+        <p class="font2">
+            This text uses Georgia font.
+        </p>
+
+        <p class="font3">
+            This text uses Courier New font.
+        </p>
+
+        <p class="font4">
+            This text uses Trebuchet MS font.
+        </p>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 5
+    ================================== -->
+
+    <section class="task5">
+
+        <h2>Task 5: Media Query Below 768px</h2>
+
+        <p>
+            Resize the browser window below 768px
+            to see the background color change.
+        </p>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 6
+    ================================== -->
+
+    <section>
+
+        <h2>Task 6: Different Devices</h2>
+
+        <div class="device-box">
+
+            <h3>Responsive Device Box</h3>
+
+            <p>
+                Mobile → Pink
+                <br>
+                Tablet → Yellow
+                <br>
+                Desktop → Green
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         TASK 7
+    ================================== -->
+
+    <section>
+
+        <h2>Task 7: Responsive Grid</h2>
+
+        <div class="grid">
+
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+
+        </div>
+
+        <p>
+            Mobile → 1 column
+            <br>
+            Tablet → 2 columns
+            <br>
+            Desktop → 4 columns
+        </p>
+
+    </section>
+
+
+</body>
+</html>
+```
