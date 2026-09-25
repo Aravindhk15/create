@@ -1,0 +1,485 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Tasks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            margin: 0 0 30px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 1100px;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           TASK 1: BASIC GRID
+        ========================= */
+
+        .basic-grid {
+            display: grid;
+
+            /* 3 equal columns */
+            grid-template-columns: repeat(3, 1fr);
+
+            /* 2 equal rows */
+            grid-template-rows: repeat(2, 100px);
+
+            /* Gap between rows and columns */
+            gap: 15px;
+        }
+
+        .grid-item {
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           TASK 2: WEBSITE LAYOUT
+        ========================= */
+
+        .website-layout {
+            display: grid;
+
+            grid-template-columns: 200px 1fr;
+
+            grid-template-rows: 80px 300px 70px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+
+            gap: 10px;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================
+           TASK 3: RESPONSIVE CARDS
+        ========================= */
+
+        .card-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #9b59b6;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+           TASK 4: IMAGE GALLERY
+        ========================= */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            grid-auto-rows: 150px;
+
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .image2 {
+            grid-column: span 1;
+        }
+
+        .image3 {
+            grid-row: span 2;
+        }
+
+        .image4 {
+            grid-column: span 2;
+        }
+
+
+        /* =========================
+           TASK 5: DASHBOARD
+        ========================= */
+
+        .dashboard {
+            display: grid;
+
+            grid-template-columns: 220px 1fr;
+
+            grid-template-rows: 70px 1fr;
+
+            grid-template-areas:
+                "dash-sidebar topnav"
+                "dash-sidebar dashboard-main";
+
+            min-height: 500px;
+        }
+
+        .dash-sidebar {
+            grid-area: dash-sidebar;
+            background-color: #1abc9c;
+            color: white;
+            padding: 25px;
+        }
+
+        .topnav {
+            grid-area: topnav;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+        }
+
+        .dashboard-main {
+            grid-area: dashboard-main;
+            padding: 20px;
+            background-color: #ecf0f1;
+        }
+
+        /* Nested grid for widgets */
+        .widgets {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+        .widget {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .widget h3 {
+            margin: 0 0 10px;
+        }
+
+        .widget p {
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+
+        /* Responsive dashboard */
+        @media (max-width: 700px) {
+
+            .website-layout {
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    70px
+                    auto
+                    250px
+                    60px;
+
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+
+                grid-template-rows:
+                    auto
+                    60px
+                    1fr;
+
+                grid-template-areas:
+                    "dash-sidebar"
+                    "topnav"
+                    "dashboard-main";
+            }
+
+            .widgets {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Grid – 5 Tasks</h1>
+
+
+    <!-- =========================
+         TASK 1
+    ========================== -->
+
+    <section>
+        <h2>Task 1: Basic Grid Layout</h2>
+
+        <div class="basic-grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         TASK 2
+    ========================== -->
+
+    <section>
+        <h2>Task 2: Website Page Layout</h2>
+
+        <div class="website-layout">
+
+            <header class="header">
+                <h2>Website Header</h2>
+            </header>
+
+            <aside class="sidebar">
+                <h3>Sidebar</h3>
+                <p>Home</p>
+                <p>About</p>
+                <p>Services</p>
+                <p>Contact</p>
+            </aside>
+
+            <main class="main">
+                <h2>Main Content</h2>
+                <p>
+                    This is the main content area of the website.
+                </p>
+            </main>
+
+            <footer class="footer">
+                Copyright © 2026
+            </footer>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         TASK 3
+    ========================== -->
+
+    <section>
+        <h2>Task 3: Responsive Card Grid</h2>
+
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>HTML</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>CSS</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 3</h3>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 4</h3>
+                <p>React</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 5</h3>
+                <p>Node.js</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 6</h3>
+                <p>Database</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         TASK 4
+    ========================== -->
+
+    <section>
+        <h2>Task 4: Image Gallery</h2>
+
+        <div class="gallery">
+
+            <img class="image1"
+                 src="https://picsum.photos/id/1015/600/600"
+                 alt="Gallery Image 1">
+
+            <img class="image2"
+                 src="https://picsum.photos/id/1016/300/300"
+                 alt="Gallery Image 2">
+
+            <img class="image3"
+                 src="https://picsum.photos/id/1025/300/600"
+                 alt="Gallery Image 3">
+
+            <img class="image4"
+                 src="https://picsum.photos/id/1035/600/300"
+                 alt="Gallery Image 4">
+
+            <img src="https://picsum.photos/id/1043/300/300"
+                 alt="Gallery Image 5">
+
+            <img src="https://picsum.photos/id/1050/300/300"
+                 alt="Gallery Image 6">
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         TASK 5
+    ========================== -->
+
+    <section>
+        <h2>Task 5: Dashboard Layout</h2>
+
+        <div class="dashboard">
+
+            <aside class="dash-sidebar">
+                <h2>Admin</h2>
+                <p>Dashboard</p>
+                <p>Users</p>
+                <p>Products</p>
+                <p>Settings</p>
+            </aside>
+
+            <nav class="topnav">
+                <strong>Top Navigation</strong>
+            </nav>
+
+            <main class="dashboard-main">
+
+                <h2>Dashboard</h2>
+
+                <div class="widgets">
+
+                    <div class="widget">
+                        <h3>Users</h3>
+                        <p>1,250</p>
+                    </div>
+
+                    <div class="widget">
+                        <h3>Orders</h3>
+                        <p>540</p>
+                    </div>
+
+                    <div class="widget">
+                        <h3>Revenue</h3>
+                        <p>₹85,000</p>
+                    </div>
+
+                    <div class="widget">
+                        <h3>Products</h3>
+                        <p>320</p>
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+    </section>
+
+</body>
+</html>
+```
