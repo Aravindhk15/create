@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Programs</title>
+</head>
+<body>
+
+    <h1>JavaScript Conditional Programs</h1>
+
+    <script>
+
+        // 1. Check Positive, Negative or Zero
+
+        let number1 = -10;
+
+        if (number1 > 0) {
+            console.log("1. Positive Number");
+        } else if (number1 < 0) {
+            console.log("1. Negative Number");
+        } else {
+            console.log("1. Zero");
+        }
+
+
+        // 2. Check Even or Odd
+
+        let number2 = 15;
+
+        if (number2 % 2 === 0) {
+            console.log("2. Even Number");
+        } else {
+            console.log("2. Odd Number");
+        }
+
+
+        // 3. Check Voting Eligibility
+
+        let age1 = 20;
+
+        if (age1 >= 18) {
+            console.log("3. Eligible to vote");
+        } else {
+            console.log("3. Not eligible to vote");
+        }
+
+
+        // 4. Find Largest of Two Numbers
+
+        let a = 25;
+        let b = 40;
+
+        if (a > b) {
+            console.log("4. Largest number:", a);
+        } else {
+            console.log("4. Largest number:", b);
+        }
+
+
+        // 5. Display Student Grade
+
+        let marks = 85;
+
+        if (marks >= 90) {
+            console.log("5. Grade: A+");
+        } else if (marks >= 80) {
+            console.log("5. Grade: A");
+        } else if (marks >= 70) {
+            console.log("5. Grade: B");
+        } else if (marks >= 60) {
+            console.log("5. Grade: C");
+        } else if (marks >= 50) {
+            console.log("5. Grade: D");
+        } else {
+            console.log("5. Grade: F");
+        }
+
+
+        // 6. Find Largest of Three Numbers
+
+        let x = 45;
+        let y = 75;
+        let z = 60;
+
+        if (x >= y && x >= z) {
+            console.log("6. Largest number:", x);
+        } else if (y >= x && y >= z) {
+            console.log("6. Largest number:", y);
+        } else {
+            console.log("6. Largest number:", z);
+        }
+
+
+        // 7. Check Leap Year
+
+        let year = 2024;
+
+        if ((year % 4 === 0 && year % 100 !== 0) ||
+            year % 400 === 0) {
+            console.log("7. Leap Year");
+        } else {
+            console.log("7. Not a Leap Year");
+        }
+
+
+        // 8. Driving License Eligibility
+
+        let age2 = 19;
+
+        if (age2 >= 18) {
+            console.log("8. Eligible for driving license");
+        } else {
+            console.log("8. Not eligible for driving license");
+        }
+
+
+        // 9. Check Divisibility by 3 and 5
+
+        let number3 = 30;
+
+        if (number3 % 3 === 0 && number3 % 5 === 0) {
+            console.log("9. Number is divisible by both 3 and 5");
+        } else {
+            console.log("9. Number is not divisible by both 3 and 5");
+        }
+
+
+        // 10. Simple Calculator
+
+        let num1 = 20;
+        let num2 = 5;
+        let operator = "*";
+
+        switch (operator) {
+
+            case "+":
+                console.log("10. Result:", num1 + num2);
+                break;
+
+            case "-":
+                console.log("10. Result:", num1 - num2);
+                break;
+
+            case "*":
+                console.log("10. Result:", num1 * num2);
+                break;
+
+            case "/":
+                if (num2 !== 0) {
+                    console.log("10. Result:", num1 / num2);
+                } else {
+                    console.log("10. Cannot divide by zero");
+                }
+                break;
+
+            case "%":
+                console.log("10. Result:", num1 % num2);
+                break;
+
+            default:
+                console.log("10. Invalid operator");
+        }
+
+    </script>
+
+</body>
+</html>
+
+

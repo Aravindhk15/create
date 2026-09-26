@@ -1,0 +1,116 @@
+# CSS Hover & Transition Tasks
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Hover Effects</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+
+        /* 1. Basic Hover Color Change with Transition */
+        .color-box {
+            width: 200px;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: lightblue;
+            transition: background-color 0.5s;
+        }
+
+        .color-box:hover {
+            background-color: blue;
+            color: white;
+        }
+
+
+        /* 2. Grow Element on Hover */
+        .grow-box {
+            width: 200px;
+            padding: 20px;
+            margin: 40px auto;
+            background-color: lightgreen;
+            transition: transform 0.5s;
+        }
+
+        .grow-box:hover {
+            transform: scale(1.2);
+        }
+
+
+        /* 3. Change Color, Size and Shadow */
+        .effect-box {
+            width: 200px;
+            padding: 20px;
+            margin: 40px auto;
+            background-color: orange;
+            transition: all 0.5s;
+        }
+
+        .effect-box:hover {
+            background-color: purple;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px gray;
+        }
+
+
+        /* 4. Reveal Content with Opacity */
+        .reveal-box {
+            width: 300px;
+            padding: 20px;
+            margin: 40px auto;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .hidden-content {
+            opacity: 0;
+            transition: opacity 0.8s;
+        }
+
+        .reveal-box:hover .hidden-content {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Hover Effects</h1>
+
+    <!-- 1. Basic Hover Color Change -->
+    <div class="color-box">
+        Hover Me
+    </div>
+
+    <!-- 2. Grow on Hover -->
+    <div class="grow-box">
+        Hover to Grow
+    </div>
+
+    <!-- 3. Color, Size and Shadow -->
+    <div class="effect-box">
+        Hover for Effects
+    </div>
+
+    <!-- 4. Reveal Content -->
+    <div class="reveal-box">
+        <h3>Hover Here</h3>
+
+        <p class="hidden-content">
+            🎉 This content appears when you hover!
+        </p>
+    </div>
+
+</body>
+</html>
+
+
