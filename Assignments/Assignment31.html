@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Function Programs</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Callback Functions</h1>
+
+    <script>
+
+        // ==========================================
+        // CALLBACK FUNCTION PROGRAMS
+        // ==========================================
+
+
+        // 1. calculate()
+        // Accepts two numbers and a callback
+        // Callback performs addition
+
+        function calculate(num1, num2, callback) {
+
+            let result = callback(num1, num2);
+
+            console.log("1. Calculate Addition");
+            console.log("Number 1:", num1);
+            console.log("Number 2:", num2);
+            console.log("Result:", result);
+
+        }
+
+
+        function addition(a, b) {
+
+            return a + b;
+
+        }
+
+
+        calculate(10, 20, addition);
+
+
+        // ==========================================
+        // 2. greetUser()
+        // ==========================================
+
+        function greetUser(name, callback) {
+
+            callback(name);
+
+        }
+
+
+        function welcomeMessage(name) {
+
+            console.log("");
+            console.log("2. Greet User");
+            console.log("Welcome", name + "!");
+
+        }
+
+
+        greetUser("Aravindh", welcomeMessage);
+
+
+        // ==========================================
+        // 3. processArray()
+        // Double each element
+        // ==========================================
+
+        function processArray(array, callback) {
+
+            let result = [];
+
+            for (let i = 0; i < array.length; i++) {
+
+                result.push(callback(array[i]));
+
+            }
+
+            return result;
+
+        }
+
+
+        function doubleNumber(number) {
+
+            return number * 2;
+
+        }
+
+
+        let numbers = [1, 2, 3, 4, 5];
+
+        let doubledArray =
+            processArray(numbers, doubleNumber);
+
+
+        console.log("");
+        console.log("3. Process Array");
+        console.log("Original Array:", numbers);
+        console.log("Doubled Array:", doubledArray);
+
+
+        // ==========================================
+        // 4. findNumber()
+        // Find first even number
+        // ==========================================
+
+        function findNumber(array, callback) {
+
+            for (let i = 0; i < array.length; i++) {
+
+                if (callback(array[i])) {
+
+                    return array[i];
+
+                }
+
+            }
+
+            return "No even number found";
+
+        }
+
+
+        function isEven(number) {
+
+            return number % 2 === 0;
+
+        }
+
+
+        let numberArray = [7, 9, 11, 14, 17, 20];
+
+        let firstEven =
+            findNumber(numberArray, isEven);
+
+
+        console.log("");
+        console.log("4. Find Number");
+        console.log("Array:", numberArray);
+        console.log("First Even Number:", firstEven);
+
+
+        // ==========================================
+        // 5. removeNegative()
+        // Remove all negative values
+        // ==========================================
+
+        function removeNegative(array, callback) {
+
+            let result = [];
+
+            for (let i = 0; i < array.length; i++) {
+
+                if (callback(array[i])) {
+
+                    result.push(array[i]);
+
+                }
+
+            }
+
+            return result;
+
+        }
+
+
+        function isPositive(number) {
+
+            return number >= 0;
+
+        }
+
+
+        let values = [10, -5, 20, -8, 30, -2, 40];
+
+        let positiveValues =
+            removeNegative(values, isPositive);
+
+
+        console.log("");
+        console.log("5. Remove Negative Values");
+        console.log("Original Array:", values);
+        console.log("After Removing Negative:", positiveValues);
+
+
+        // ==========================================
+        // 6. checkEligibility()
+        // Check voting eligibility
+        // ==========================================
+
+        function checkEligibility(age, callback) {
+
+            callback(age);
+
+        }
+
+
+        function votingCheck(age) {
+
+            console.log("");
+            console.log("6. Check Eligibility");
+            console.log("Age:", age);
+
+            if (age >= 18) {
+
+                console.log("Eligible to Vote");
+
+            } else {
+
+                console.log("Not Eligible to Vote");
+
+            }
+
+        }
+
+
+        checkEligibility(23, votingCheck);
+
+
+        // ==========================================
+        // FINAL
+        // ==========================================
+
+        console.log("");
+        console.log("======================================");
+        console.log("ALL CALLBACK PROGRAMS COMPLETED");
+        console.log("======================================");
+
+    </script>
+
+</body>
+</html>
+
