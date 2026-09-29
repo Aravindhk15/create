@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM - All Programs</title>
+</head>
+
+<body>
+
+    <!-- Elements for Task 1 -->
+    <p id="para1">Original Paragraph</p>
+
+    <button id="myButton">Click Me</button>
+
+    <div id="myDiv">This is Div</div>
+
+
+    <!-- Elements for Task 2 -->
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Bootstrap</li>
+    </ul>
+
+    <h1>Heading 1</h1>
+    <h1>Heading 2</h1>
+
+
+    <!-- Elements for Task 3 -->
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+
+    <p class="hidden-item">Hidden Item 1</p>
+    <p class="hidden-item">Hidden Item 2</p>
+
+    <p class="message">Message 1</p>
+    <p class="message">Message 2</p>
+
+
+    <!-- Elements for Task 4 -->
+    <p>Query Selector Paragraph 1</p>
+    <p>Query Selector Paragraph 2</p>
+
+    <p class="special">Special Element</p>
+
+    <form>
+        <input type="text" value="Aravindh">
+    </form>
+
+
+    <script>
+
+        // ========================================
+        // TASK 1: getElementById()
+        // ========================================
+
+        console.log("========== TASK 1: getElementById ==========");
+
+
+        // 1. Select a paragraph with an ID and change its text
+
+        let paragraph = document.getElementById("para1");
+
+        paragraph.innerText = "Paragraph text changed";
+
+        console.log("1. Changed paragraph text:");
+        console.log(paragraph.innerText);
+
+
+        // 2. Select a button by ID and disable it when clicked
+
+        let button = document.getElementById("myButton");
+
+        button.addEventListener("click", function () {
+
+            button.disabled = true;
+
+            console.log("2. Button clicked");
+            console.log("Button disabled:", button.disabled);
+
+        });
+
+        console.log("2. Button selected successfully");
+
+
+        // 3. Change background color of div using ID
+
+        let div = document.getElementById("myDiv");
+
+        div.style.backgroundColor = "yellow";
+
+        console.log("3. Div background color changed to yellow");
+
+
+        // ========================================
+        // TASK 2: getElementsByTagName()
+        // ========================================
+
+        console.log("");
+        console.log("========== TASK 2: getElementsByTagName ==========");
+
+
+        // 1. Select all <p> elements and change text color
+
+        let paragraphs = document.getElementsByTagName("p");
+
+        for (let i = 0; i < paragraphs.length; i++) {
+
+            paragraphs[i].style.color = "blue";
+
+        }
+
+        console.log("1. Total <p> elements:", paragraphs.length);
+        console.log("All <p> elements text color changed to blue");
+
+
+        // 2. Count how many <li> elements are on the page
+
+        let listItems = document.getElementsByTagName("li");
+
+        console.log("2. Number of <li> elements:", listItems.length);
+
+
+        // 3. Change font size of all <h1> elements
+
+        let headings = document.getElementsByTagName("h1");
+
+        for (let i = 0; i < headings.length; i++) {
+
+            headings[i].style.fontSize = "40px";
+
+        }
+
+        console.log("3. Number of <h1> elements:", headings.length);
+        console.log("All <h1> font sizes changed to 40px");
+
+
+        // ========================================
+        // TASK 3: getElementsByClassName()
+        // ========================================
+
+        console.log("");
+        console.log("========== TASK 3: getElementsByClassName ==========");
+
+
+        // 1. Change background color of all elements
+        // with a specific class
+
+        let boxes = document.getElementsByClassName("box");
+
+        for (let i = 0; i < boxes.length; i++) {
+
+            boxes[i].style.backgroundColor = "green";
+
+        }
+
+        console.log("1. Number of .box elements:", boxes.length);
+        console.log("All .box backgrounds changed to green");
+
+
+        // 2. Hide all elements with class hidden-item
+
+        let hiddenItems =
+            document.getElementsByClassName("hidden-item");
+
+        for (let i = 0; i < hiddenItems.length; i++) {
+
+            hiddenItems[i].style.display = "none";
+
+        }
+
+        console.log("2. Number of hidden items:", hiddenItems.length);
+        console.log("All .hidden-item elements are hidden");
+
+
+        // 3. Add text to all elements with class message
+
+        let messages =
+            document.getElementsByClassName("message");
+
+        for (let i = 0; i < messages.length; i++) {
+
+            messages[i].innerText =
+                "New message added using JavaScript";
+
+        }
+
+        console.log("3. Number of message elements:", messages.length);
+        console.log("Text added to all .message elements");
+
+
+        // ========================================
+        // TASK 4: querySelector()
+        // ========================================
+
+        console.log("");
+        console.log("========== TASK 4: querySelector ==========");
+
+
+        // 1. Select the first <p> element and change its text
+
+        let firstParagraph =
+            document.querySelector("p");
+
+        firstParagraph.innerText =
+            "First paragraph changed using querySelector";
+
+        console.log("1. First <p> text:");
+        console.log(firstParagraph.innerText);
+
+
+        // 2. Select an element with a specific class
+        // and change its color
+
+        let special =
+            document.querySelector(".special");
+
+        special.style.color = "red";
+
+        console.log("2. Special element color changed to red");
+
+
+        // 3. Select an input inside a form and get its value
+
+        let formInput =
+            document.querySelector("form input");
+
+        console.log("3. Form input value:", formInput.value);
+
+
+        // 4. Select an element using attribute selector
+
+        let textInput =
+            document.querySelector('input[type="text"]');
+
+        console.log("4. Text input value:", textInput.value);
+
+
+        // ========================================
+        // FINAL
+        // ========================================
+
+        console.log("");
+        console.log("========================================");
+        console.log("ALL DOM PROGRAMS COMPLETED");
+        console.log("========================================");
+
+    </script>
+
+</body>
+</html>
+

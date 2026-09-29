@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class and Object Programs</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Class and Object Programs</h1>
+
+        <!-- Student -->
+        <div class="card">
+            <h2>1. Student Details</h2>
+            <div id="studentDetails"></div>
+        </div>
+
+        <!-- Employee -->
+        <div class="card">
+            <h2>2. Employee Details</h2>
+            <div id="employeeDetails"></div>
+        </div>
+
+        <!-- Customer -->
+        <div class="card">
+            <h2>3. Customer Details</h2>
+            <div id="customerDetails"></div>
+        </div>
+
+        <!-- Staff -->
+        <div class="card">
+            <h2>4. Staff Details</h2>
+            <div id="staffDetails"></div>
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script>
+
+        // ==========================================
+        // 1. STUDENT CLASS
+        // ==========================================
+
+        class Student {
+
+            constructor(rollNo, name, marks) {
+                this.rollNo = rollNo;
+                this.name = name;
+                this.marks = marks;
+            }
+
+            displayDetails() {
+
+                document.getElementById("studentDetails").innerHTML = `
+                    <p><b>Roll No:</b> ${this.rollNo}</p>
+                    <p><b>Name:</b> ${this.name}</p>
+                    <p><b>Marks:</b> ${this.marks}</p>
+                `;
+
+            }
+        }
+
+
+        // ==========================================
+        // 2. EMPLOYEE CLASS
+        // ==========================================
+
+        class Employee {
+
+            inputDetails(empId, empName, designation, salary) {
+
+                this.empId = empId;
+                this.empName = empName;
+                this.designation = designation;
+                this.salary = salary;
+
+            }
+
+            displayDetails() {
+
+                document.getElementById("employeeDetails").innerHTML = `
+                    <p><b>Employee ID:</b> ${this.empId}</p>
+                    <p><b>Employee Name:</b> ${this.empName}</p>
+                    <p><b>Designation:</b> ${this.designation}</p>
+                    <p><b>Salary:</b> ₹${this.salary}</p>
+                `;
+
+            }
+        }
+
+
+        // ==========================================
+        // 3. CUSTOMER CLASS
+        // ==========================================
+
+        class Custommer {
+
+            inputDetails(CustomerId, CName, Mobile, Address) {
+
+                this.CustomerId = CustomerId;
+                this.CName = CName;
+                this.Mobile = Mobile;
+                this.Address = Address;
+
+            }
+
+            displayDetails() {
+
+                document.getElementById("customerDetails").innerHTML = `
+                    <p><b>Customer ID:</b> ${this.CustomerId}</p>
+                    <p><b>Name:</b> ${this.CName}</p>
+                    <p><b>Mobile:</b> ${this.Mobile}</p>
+                    <p><b>Address:</b> ${this.Address}</p>
+                `;
+
+            }
+        }
+
+
+        // ==========================================
+        // 4. STAFF CLASS
+        // ==========================================
+
+        class Staff {
+
+            inputDetails(
+                StaffId,
+                SName,
+                Mobile,
+                Email,
+                department,
+                Address
+            ) {
+
+                this.StaffId = StaffId;
+                this.SName = SName;
+                this.Mobile = Mobile;
+                this.Email = Email;
+                this.department = department;
+                this.Address = Address;
+
+            }
+
+            displayDetails() {
+
+                document.getElementById("staffDetails").innerHTML = `
+                    <p><b>Staff ID:</b> ${this.StaffId}</p>
+                    <p><b>Name:</b> ${this.SName}</p>
+                    <p><b>Mobile:</b> ${this.Mobile}</p>
+                    <p><b>Email:</b> ${this.Email}</p>
+                    <p><b>Department:</b> ${this.department}</p>
+                    <p><b>Address:</b> ${this.Address}</p>
+                `;
+
+            }
+        }
+
+
+        // ==========================================
+        // CREATE OBJECTS
+        // ==========================================
+
+        // Student Object
+        let student1 = new Student(
+            101,
+            "Aravindh",
+            85
+        );
+
+
+        // Employee Object
+        let employee1 = new Employee();
+
+        employee1.inputDetails(
+            1001,
+            "Aravindh",
+            "Developer",
+            30000
+        );
+
+
+        // Customer Object
+        let customer1 = new Custommer();
+
+        customer1.inputDetails(
+            501,
+            "Aravindh",
+            "8270828216",
+            "Chennai"
+        );
+
+
+        // Staff Object
+        let staff1 = new Staff();
+
+        staff1.inputDetails(
+            301,
+            "Aravindh",
+            "8270828216",
+            "arvindknov03@gmail.com",
+            "IT",
+            "Chennai"
+        );
+
+
+        // ==========================================
+        // DISPLAY ALL DETAILS
+        // ==========================================
+
+        student1.displayDetails();
+
+        employee1.displayDetails();
+
+        customer1.displayDetails();
+
+        staff1.displayDetails();
+
+    </script>
+
+</body>
+
+</html>

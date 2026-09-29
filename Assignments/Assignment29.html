@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Events Programs</title>
+</head>
+
+<body>
+
+    <h1>DOM Events</h1>
+
+    <!-- 1. Button Click -->
+    <button id="helloBtn">Click Me</button>
+
+    <br><br>
+
+    <!-- 2. Change Text Color -->
+    <p id="colorPara">This paragraph color will change.</p>
+    <button id="colorBtn">Change Color</button>
+
+    <br><br>
+
+    <!-- 3. Mouse Hover -->
+    <div id="hoverBox"
+         style="width:200px; height:100px; background-color:lightblue;">
+        Move Mouse Here
+    </div>
+
+    <br>
+
+    <!-- 4. Double Click -->
+    <button id="doubleBtn">Double Click Me</button>
+
+    <br><br>
+
+    <!-- 5. Keyboard Event -->
+    <input type="text" id="keyInput" placeholder="Type something">
+
+    <script>
+
+        // ========================================
+        // DOM EVENTS
+        // ========================================
+
+        console.log("========== DOM EVENTS ==========");
+
+
+        // ========================================
+        // 1. BUTTON CLICK
+        // ========================================
+
+        let helloBtn = document.getElementById("helloBtn");
+
+        helloBtn.addEventListener("click", function () {
+
+            console.log("1. Button Click:");
+            console.log("Hello, World!");
+
+        });
+
+
+        // ========================================
+        // 2. CHANGE TEXT COLOR
+        // ========================================
+
+        let colorBtn = document.getElementById("colorBtn");
+
+        let colorPara = document.getElementById("colorPara");
+
+        colorBtn.addEventListener("click", function () {
+
+            colorPara.style.color = "red";
+
+            console.log("2. Text Color Changed:");
+            console.log("Paragraph color changed to red");
+
+        });
+
+
+        // ========================================
+        // 3. MOUSE HOVER
+        // ========================================
+
+        let hoverBox = document.getElementById("hoverBox");
+
+        hoverBox.addEventListener("mouseover", function () {
+
+            hoverBox.style.backgroundColor = "yellow";
+
+            console.log("3. Mouse Hover:");
+            console.log("Mouse moved over the div");
+            console.log("Background color changed to yellow");
+
+        });
+
+
+        // ========================================
+        // 4. DOUBLE-CLICK EVENT
+        // ========================================
+
+        let doubleBtn = document.getElementById("doubleBtn");
+
+        doubleBtn.addEventListener("dblclick", function () {
+
+            alert("Button Double-Clicked!");
+
+            console.log("4. Double Click:");
+            console.log("Double-click event occurred");
+
+        });
+
+
+        // ========================================
+        // 5. KEYBOARD EVENT
+        // ========================================
+
+        let keyInput = document.getElementById("keyInput");
+
+        keyInput.addEventListener("keydown", function (event) {
+
+            console.log("5. Keyboard Event:");
+            console.log("Key Pressed:", event.key);
+
+        });
+
+
+        // ========================================
+        // FINAL
+        // ========================================
+
+        console.log("================================");
+        console.log("All DOM Events are Ready!");
+        console.log("================================");
+
+    </script>
+
+</body>
+</html>
+

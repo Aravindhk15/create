@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Feedback Form</title>
+</head>
+
+<body>
+
+    <h1>Customer Feedback Form</h1>
+
+    <form id="feedbackForm">
+
+        <!-- 1. Full Name -->
+        <label>Full Name:</label>
+        <input type="text" id="fullName">
+        <br><br>
+
+        <!-- 2. Email -->
+        <label>Email Address:</label>
+        <input type="email" id="email">
+        <br><br>
+
+        <!-- 3. Reason -->
+        <label>Reason for Visit / Purchase:</label>
+        <br>
+        <input type="radio" name="reason" value="Product Purchase">
+        Product Purchase
+
+        <input type="radio" name="reason" value="Customer Support">
+        Customer Support
+
+        <input type="radio" name="reason" value="Browsing / Research">
+        Browsing / Research
+
+        <input type="radio" name="reason" value="Other">
+        Other
+
+        <br><br>
+
+        <!-- 4. Overall Satisfaction -->
+        <label>Overall Satisfaction:</label>
+        <br>
+        <input type="radio" name="satisfaction" value="1 - Very Dissatisfied">
+        1 - Very Dissatisfied
+
+        <input type="radio" name="satisfaction" value="2 - Dissatisfied">
+        2 - Dissatisfied
+
+        <input type="radio" name="satisfaction" value="3 - Neutral">
+        3 - Neutral
+
+        <input type="radio" name="satisfaction" value="4 - Satisfied">
+        4 - Satisfied
+
+        <input type="radio" name="satisfaction" value="5 - Very Satisfied">
+        5 - Very Satisfied
+
+        <br><br>
+
+        <!-- 5. Ease of Use -->
+        <label>Ease of Use / Navigation:</label>
+        <br>
+        <input type="radio" name="ease" value="Very Easy">
+        Very Easy
+
+        <input type="radio" name="ease" value="Easy">
+        Easy
+
+        <input type="radio" name="ease" value="Neutral">
+        Neutral
+
+        <input type="radio" name="ease" value="Difficult">
+        Difficult
+
+        <input type="radio" name="ease" value="Very Difficult">
+        Very Difficult
+
+        <br><br>
+
+        <!-- 6. Product Quality -->
+        <label>Product / Service Quality:</label>
+        <br>
+        <input type="radio" name="quality" value="Excellent">
+        Excellent
+
+        <input type="radio" name="quality" value="Good">
+        Good
+
+        <input type="radio" name="quality" value="Average">
+        Average
+
+        <input type="radio" name="quality" value="Poor">
+        Poor
+
+        <input type="radio" name="quality" value="Very Poor">
+        Very Poor
+
+        <br><br>
+
+        <!-- 7. Staff Helpfulness -->
+        <label>Staff / Customer Support Helpfulness:</label>
+        <br>
+        <input type="radio" name="support" value="N/A - No interaction">
+        N/A - No interaction
+
+        <input type="radio" name="support" value="Extremely Helpful">
+        Extremely Helpful
+
+        <input type="radio" name="support" value="Somewhat Helpful">
+        Somewhat Helpful
+
+        <input type="radio" name="support" value="Unhelpful">
+        Unhelpful
+
+        <br><br>
+
+        <!-- 8. Recommendation -->
+        <label>How likely are you to recommend us to a friend?</label>
+        <br>
+        <input type="number" id="recommend" min="0" max="10">
+        <br><br>
+
+        <!-- 9. Improvements -->
+        <label>What can we improve?</label>
+        <br>
+
+        <input type="checkbox" name="improve" value="Product Selection">
+        Product Selection
+
+        <input type="checkbox" name="improve" value="Pricing">
+        Pricing
+
+        <input type="checkbox" name="improve" value="Website / App">
+        Website / App
+
+        <input type="checkbox" name="improve" value="Delivery / Service Speed">
+        Delivery / Service Speed
+
+        <input type="checkbox" name="improve" value="Customer Support">
+        Customer Support
+
+        <br><br>
+
+        <!-- 10. Comments -->
+        <label>Additional Comments:</label>
+        <br>
+        <textarea id="comments" rows="5" cols="40"></textarea>
+
+        <br><br>
+
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+
+    <script>
+
+        // ==========================================
+        // CUSTOMER FEEDBACK FORM
+        // ==========================================
+
+        let form = document.getElementById("feedbackForm");
+
+
+        form.addEventListener("submit", function(event) {
+
+            // Stop page refresh
+            event.preventDefault();
+
+
+            // 1. Full Name
+            let fullName =
+                document.getElementById("fullName").value;
+
+
+            // 2. Email
+            let email =
+                document.getElementById("email").value;
+
+
+            // 3. Reason
+            let reason =
+                document.querySelector(
+                    'input[name="reason"]:checked'
+                );
+
+
+            // 4. Overall Satisfaction
+            let satisfaction =
+                document.querySelector(
+                    'input[name="satisfaction"]:checked'
+                );
+
+
+            // 5. Ease of Use
+            let ease =
+                document.querySelector(
+                    'input[name="ease"]:checked'
+                );
+
+
+            // 6. Product Quality
+            let quality =
+                document.querySelector(
+                    'input[name="quality"]:checked'
+                );
+
+
+            // 7. Staff Helpfulness
+            let support =
+                document.querySelector(
+                    'input[name="support"]:checked'
+                );
+
+
+            // 8. Recommendation
+            let recommend =
+                document.getElementById("recommend").value;
+
+
+            // 9. Improvements
+            let improvements =
+                document.querySelectorAll(
+                    'input[name="improve"]:checked'
+                );
+
+            let improvementList = [];
+
+            improvements.forEach(function(item) {
+                improvementList.push(item.value);
+            });
+
+
+            // 10. Comments
+            let comments =
+                document.getElementById("comments").value;
+
+
+            // ==========================================
+            // CONSOLE OUTPUT
+            // ==========================================
+
+            console.clear();
+
+            console.log("====================================");
+            console.log("       CUSTOMER FEEDBACK");
+            console.log("====================================");
+
+            console.log("1. Full Name:", fullName);
+
+            console.log("2. Email Address:", email);
+
+            console.log(
+                "3. Reason for Visit / Purchase:",
+                reason ? reason.value : "Not Selected"
+            );
+
+            console.log(
+                "4. Overall Satisfaction:",
+                satisfaction ? satisfaction.value : "Not Selected"
+            );
+
+            console.log(
+                "5. Ease of Use / Navigation:",
+                ease ? ease.value : "Not Selected"
+            );
+
+            console.log(
+                "6. Product / Service Quality:",
+                quality ? quality.value : "Not Selected"
+            );
+
+            console.log(
+                "7. Staff / Customer Support Helpfulness:",
+                support ? support.value : "Not Selected"
+            );
+
+            console.log(
+                "8. Recommendation Score:",
+                recommend
+            );
+
+            console.log(
+                "9. What can we improve:",
+                improvementList
+            );
+
+            console.log(
+                "10. Additional Comments:",
+                comments
+            );
+
+            console.log("====================================");
+            console.log("Feedback Submitted Successfully!");
+            console.log("====================================");
+
+        });
+
+    </script>
+
+</body>
+</html>
+

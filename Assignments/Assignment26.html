@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inheritance and Method Overloading</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .output {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-left: 4px solid #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Inheritance and Method Overloading</h1>
+
+
+        <!-- ================================================= -->
+        <!-- 1. EMPLOYEE -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>1. Employee Class</h2>
+
+            <div id="employeeOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 2. VEHICLE → CAR → SPORTSCAR -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>2. Vehicle → Car → SportsCar</h2>
+
+            <div id="sportsCarOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 3. SHAPE → RECTANGLE -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>3. Shape → Rectangle</h2>
+
+            <div id="rectangleOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 4. ACCOUNT → SAVINGS ACCOUNT -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>4. Account → SavingsAccount</h2>
+
+            <div id="accountOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 5. DEVICE → MOBILE → SMARTPHONE -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>5. Device → Mobile → SmartPhone</h2>
+
+            <div id="smartPhoneOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 6. AREA - METHOD OVERLOADING -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>6. Area - CalculateArea()</h2>
+
+            <div id="areaOutput" class="output"></div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- 7. SHAPE - METHOD OVERLOADING -->
+        <!-- ================================================= -->
+
+        <div class="card">
+
+            <h2>7. Shape - Draw()</h2>
+
+            <div id="drawOutput" class="output"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================================== -->
+
+    <script>
+
+
+        // =====================================================
+        // 1. EMPLOYEE CLASS
+        // =====================================================
+
+        class Employee {
+
+            inputDetails(empId, empName, salary) {
+
+                this.empId = empId;
+                this.empName = empName;
+                this.salary = salary;
+
+            }
+
+
+            displayDetails() {
+
+                return `
+                    <p><b>Employee ID:</b> ${this.empId}</p>
+                    <p><b>Employee Name:</b> ${this.empName}</p>
+                    <p><b>Salary:</b> ₹${this.salary}</p>
+                `;
+
+            }
+
+        }
+
+
+        // Create Employee object
+
+        let employee1 = new Employee();
+
+        employee1.inputDetails(
+            101,
+            "Aravindh",
+            30000
+        );
+
+
+        document.getElementById("employeeOutput").innerHTML =
+            employee1.displayDetails();
+
+
+
+        // =====================================================
+        // 2. VEHICLE → CAR → SPORTSCAR
+        // =====================================================
+
+        class Vehicle {
+
+            constructor(vehicleType) {
+
+                this.vehicleType = vehicleType;
+
+            }
+
+        }
+
+
+        class Car extends Vehicle {
+
+            constructor(vehicleType, brand) {
+
+                super(vehicleType);
+
+                this.brand = brand;
+
+            }
+
+        }
+
+
+        class SportsCar extends Car {
+
+            constructor(vehicleType, brand, speed) {
+
+                super(vehicleType, brand);
+
+                this.speed = speed;
+
+            }
+
+
+            displayDetails() {
+
+                return `
+                    <p><b>Vehicle Type:</b> ${this.vehicleType}</p>
+                    <p><b>Brand:</b> ${this.brand}</p>
+                    <p><b>Maximum Speed:</b> ${this.speed} km/h</p>
+                `;
+
+            }
+
+        }
+
+
+        // Create SportsCar object
+
+        let sportsCar1 = new SportsCar(
+            "Car",
+            "Ferrari",
+            320
+        );
+
+
+        document.getElementById("sportsCarOutput").innerHTML =
+            sportsCar1.displayDetails();
+
+
+
+        // =====================================================
+        // 3. SHAPE → RECTANGLE
+        // =====================================================
+
+        class Shape {
+
+            display() {
+
+                return "This is a Shape.";
+
+            }
+
+        }
+
+
+        class Rectangle extends Shape {
+
+            constructor(length, breadth) {
+
+                super();
+
+                this.length = length;
+                this.breadth = breadth;
+
+            }
+
+
+            displayArea() {
+
+                let area = this.length * this.breadth;
+
+                return `
+                    <p><b>Inherited Method:</b> ${this.display()}</p>
+
+                    <p><b>Length:</b> ${this.length}</p>
+
+                    <p><b>Breadth:</b> ${this.breadth}</p>
+
+                    <p><b>Area:</b> ${area}</p>
+                `;
+
+            }
+
+        }
+
+
+        // Create Rectangle object
+
+        let rectangle1 = new Rectangle(
+            10,
+            5
+        );
+
+
+        document.getElementById("rectangleOutput").innerHTML =
+            rectangle1.displayArea();
+
+
+
+        // =====================================================
+        // 4. ACCOUNT → SAVINGS ACCOUNT
+        // =====================================================
+
+        class Account {
+
+            constructor(accountNo) {
+
+                this.accountNo = accountNo;
+
+            }
+
+        }
+
+
+        class SavingsAccount extends Account {
+
+            constructor(accountNo, balance) {
+
+                super(accountNo);
+
+                this.balance = balance;
+
+            }
+
+
+            displayDetails() {
+
+                return `
+                    <p><b>Account Number:</b> ${this.accountNo}</p>
+
+                    <p><b>Balance:</b> ₹${this.balance}</p>
+                `;
+
+            }
+
+        }
+
+
+        // Create SavingsAccount object
+
+        let savings1 = new SavingsAccount(
+            "ACC1001",
+            50000
+        );
+
+
+        document.getElementById("accountOutput").innerHTML =
+            savings1.displayDetails();
+
+
+
+        // =====================================================
+        // 5. DEVICE → MOBILE → SMARTPHONE
+        // =====================================================
+        // Multilevel Inheritance
+        // =====================================================
+
+        class Device {
+
+            constructor(deviceName) {
+
+                this.deviceName = deviceName;
+
+            }
+
+        }
+
+
+        class Mobile extends Device {
+
+            constructor(deviceName, model) {
+
+                super(deviceName);
+
+                this.model = model;
+
+            }
+
+        }
+
+
+        class SmartPhone extends Mobile {
+
+            constructor(deviceName, model, os) {
+
+                super(deviceName, model);
+
+                this.os = os;
+
+            }
+
+
+            displayDetails() {
+
+                return `
+                    <p><b>Device Name:</b> ${this.deviceName}</p>
+
+                    <p><b>Model:</b> ${this.model}</p>
+
+                    <p><b>Operating System:</b> ${this.os}</p>
+                `;
+
+            }
+
+        }
+
+
+        // Create SmartPhone object
+
+        let phone1 = new SmartPhone(
+            "Mobile",
+            "Samsung Galaxy S25",
+            "Android"
+        );
+
+
+        document.getElementById("smartPhoneOutput").innerHTML =
+            phone1.displayDetails();
+
+
+
+        // =====================================================
+        // 6. AREA - METHOD OVERLOADING
+        // =====================================================
+        // JavaScript does not have traditional method
+        // overloading. We use arguments to handle
+        // different numbers of parameters.
+        // =====================================================
+
+        class Area {
+
+
+            CalculateArea(type, a, b) {
+
+
+                // Square
+
+                if (type === "square") {
+
+                    let area = a * a;
+
+                    return `
+                        <p><b>Square Side:</b> ${a}</p>
+
+                        <p><b>Area of Square:</b> ${area}</p>
+                    `;
+
+                }
+
+
+                // Rectangle
+
+                else if (type === "rectangle") {
+
+                    let area = a * b;
+
+                    return `
+                        <p><b>Rectangle Length:</b> ${a}</p>
+
+                        <p><b>Rectangle Breadth:</b> ${b}</p>
+
+                        <p><b>Area of Rectangle:</b> ${area}</p>
+                    `;
+
+                }
+
+
+                // Circle
+
+                else if (type === "circle") {
+
+                    let area = Math.PI * a * a;
+
+                    return `
+                        <p><b>Circle Radius:</b> ${a}</p>
+
+                        <p><b>Area of Circle:</b> ${area.toFixed(2)}</p>
+                    `;
+
+                }
+
+            }
+
+        }
+
+
+        // Create Area object
+
+        let area1 = new Area();
+
+
+        let squareResult =
+            area1.CalculateArea("square", 5);
+
+
+        let rectangleResult =
+            area1.CalculateArea("rectangle", 10, 5);
+
+
+        let circleResult =
+            area1.CalculateArea("circle", 7);
+
+
+        document.getElementById("areaOutput").innerHTML = `
+
+            <h3>Square</h3>
+            ${squareResult}
+
+            <h3>Rectangle</h3>
+            ${rectangleResult}
+
+            <h3>Circle</h3>
+            ${circleResult}
+
+        `;
+
+
+
+        // =====================================================
+        // 7. SHAPE - METHOD OVERLOADING
+        // =====================================================
+        // Use Draw() for Circle, Rectangle and Triangle.
+        // No inheritance is used.
+        // =====================================================
+
+        class DrawShape {
+
+
+            Draw(type, a, b) {
+
+
+                // Circle
+
+                if (type === "circle") {
+
+                    return `
+                        <p><b>Drawing:</b> Circle</p>
+
+                        <p><b>Radius:</b> ${a}</p>
+                    `;
+
+                }
+
+
+                // Rectangle
+
+                else if (type === "rectangle") {
+
+                    return `
+                        <p><b>Drawing:</b> Rectangle</p>
+
+                        <p><b>Length:</b> ${a}</p>
+
+                        <p><b>Breadth:</b> ${b}</p>
+                    `;
+
+                }
+
+
+                // Triangle
+
+                else if (type === "triangle") {
+
+                    return `
+                        <p><b>Drawing:</b> Triangle</p>
+
+                        <p><b>Base:</b> ${a}</p>
+
+                        <p><b>Height:</b> ${b}</p>
+                    `;
+
+                }
+
+            }
+
+        }
+
+
+        // Create DrawShape object
+
+        let shape1 = new DrawShape();
+
+
+        let circle =
+            shape1.Draw("circle", 7);
+
+
+        let rectangle =
+            shape1.Draw("rectangle", 10, 5);
+
+
+        let triangle =
+            shape1.Draw("triangle", 8, 6);
+
+
+        document.getElementById("drawOutput").innerHTML = `
+
+            <h3>Circle</h3>
+            ${circle}
+
+            <h3>Rectangle</h3>
+            ${rectangle}
+
+            <h3>Triangle</h3>
+            ${triangle}
+
+        `;
+
+    </script>
+
+</body>
+
+</html>
