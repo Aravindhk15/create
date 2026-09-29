@@ -1,0 +1,655 @@
+```c
+#include <stdio.h>
+#include <string.h>
+
+// ============================================================
+// 12. FACTORIAL
+// ============================================================
+
+void factorialFor(int n)
+{
+    int fact = 1;
+
+    for (int i = 1; i <= n; i++)
+        fact *= i;
+
+    printf("Factorial using FOR = %d\n", fact);
+}
+
+void factorialWhile(int n)
+{
+    int fact = 1, i = 1;
+
+    while (i <= n)
+    {
+        fact *= i;
+        i++;
+    }
+
+    printf("Factorial using WHILE = %d\n", fact);
+}
+
+void factorialDoWhile(int n)
+{
+    int fact = 1, i = 1;
+
+    if (n == 0)
+    {
+        fact = 1;
+    }
+    else
+    {
+        do
+        {
+            fact *= i;
+            i++;
+        } while (i <= n);
+    }
+
+    printf("Factorial using DO-WHILE = %d\n", fact);
+}
+
+// ============================================================
+// 13. PRIME NUMBER OR NOT
+// ============================================================
+
+int isPrimeFor(int n)
+{
+    if (n < 2)
+        return 0;
+
+    for (int i = 2; i <= n / 2; i++)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int isPrimeWhile(int n)
+{
+    if (n < 2)
+        return 0;
+
+    int i = 2;
+
+    while (i <= n / 2)
+    {
+        if (n % i == 0)
+            return 0;
+
+        i++;
+    }
+
+    return 1;
+}
+
+int isPrimeDoWhile(int n)
+{
+    if (n < 2)
+        return 0;
+
+    int i = 2;
+
+    do
+    {
+        if (n % i == 0)
+            return 0;
+
+        i++;
+    } while (i <= n / 2);
+
+    return 1;
+}
+
+// ============================================================
+// 14. PRINT PRIME NUMBER SERIES
+// ============================================================
+
+void primeSeriesFor(int limit)
+{
+    printf("Prime numbers using FOR:\n");
+
+    for (int n = 2; n <= limit; n++)
+    {
+        if (isPrimeFor(n))
+            printf("%d ", n);
+    }
+
+    printf("\n");
+}
+
+void primeSeriesWhile(int limit)
+{
+    printf("Prime numbers using WHILE:\n");
+
+    int n = 2;
+
+    while (n <= limit)
+    {
+        if (isPrimeWhile(n))
+            printf("%d ", n);
+
+        n++;
+    }
+
+    printf("\n");
+}
+
+void primeSeriesDoWhile(int limit)
+{
+    printf("Prime numbers using DO-WHILE:\n");
+
+    int n = 2;
+
+    if (limit >= 2)
+    {
+        do
+        {
+            if (isPrimeDoWhile(n))
+                printf("%d ", n);
+
+            n++;
+        } while (n <= limit);
+    }
+
+    printf("\n");
+}
+
+// ============================================================
+// 15. ARMSTRONG NUMBER OR NOT
+// ============================================================
+
+int powerFor(int base, int exponent)
+{
+    int result = 1;
+
+    for (int i = 1; i <= exponent; i++)
+        result *= base;
+
+    return result;
+}
+
+int countDigitsWhile(int n)
+{
+    int count = 0;
+
+    if (n == 0)
+        return 1;
+
+    while (n != 0)
+    {
+        count++;
+        n /= 10;
+    }
+
+    return count;
+}
+
+int isArmstrongFor(int n)
+{
+    int original = n;
+    int sum = 0;
+    int digits = countDigitsWhile(n);
+
+    if (n == 0)
+        return 1;
+
+    for (int temp = n; temp != 0; temp /= 10)
+    {
+        int digit = temp % 10;
+        sum += powerFor(digit, digits);
+    }
+
+    return sum == original;
+}
+
+int isArmstrongWhile(int n)
+{
+    int original = n;
+    int sum = 0;
+    int digits = countDigitsWhile(n);
+    int temp = n;
+
+    if (n == 0)
+        return 1;
+
+    while (temp != 0)
+    {
+        int digit = temp % 10;
+        sum += powerFor(digit, digits);
+        temp /= 10;
+    }
+
+    return sum == original;
+}
+
+int isArmstrongDoWhile(int n)
+{
+    int original = n;
+    int sum = 0;
+    int digits = countDigitsWhile(n);
+    int temp = n;
+
+    if (n == 0)
+        return 1;
+
+    do
+    {
+        int digit = temp % 10;
+        sum += powerFor(digit, digits);
+        temp /= 10;
+
+    } while (temp != 0);
+
+    return sum == original;
+}
+
+// ============================================================
+// 16. ARMSTRONG NUMBER SERIES
+// ============================================================
+
+void armstrongSeriesFor(int limit)
+{
+    printf("Armstrong numbers using FOR:\n");
+
+    for (int i = 0; i <= limit; i++)
+    {
+        if (isArmstrongFor(i))
+            printf("%d ", i);
+    }
+
+    printf("\n");
+}
+
+void armstrongSeriesWhile(int limit)
+{
+    printf("Armstrong numbers using WHILE:\n");
+
+    int i = 0;
+
+    while (i <= limit)
+    {
+        if (isArmstrongWhile(i))
+            printf("%d ", i);
+
+        i++;
+    }
+
+    printf("\n");
+}
+
+void armstrongSeriesDoWhile(int limit)
+{
+    printf("Armstrong numbers using DO-WHILE:\n");
+
+    int i = 0;
+
+    do
+    {
+        if (isArmstrongDoWhile(i))
+            printf("%d ", i);
+
+        i++;
+
+    } while (i <= limit);
+
+    printf("\n");
+}
+
+// ============================================================
+// 17. FIBONACCI SERIES
+// ============================================================
+
+void fibonacciFor(int n)
+{
+    int a = 0, b = 1, c;
+
+    printf("Fibonacci using FOR:\n");
+
+    for (int i = 1; i <= n; i++)
+    {
+        printf("%d ", a);
+
+        c = a + b;
+        a = b;
+        b = c;
+    }
+
+    printf("\n");
+}
+
+void fibonacciWhile(int n)
+{
+    int a = 0, b = 1, c;
+    int i = 1;
+
+    printf("Fibonacci using WHILE:\n");
+
+    while (i <= n)
+    {
+        printf("%d ", a);
+
+        c = a + b;
+        a = b;
+        b = c;
+
+        i++;
+    }
+
+    printf("\n");
+}
+
+void fibonacciDoWhile(int n)
+{
+    int a = 0, b = 1, c;
+    int i = 1;
+
+    printf("Fibonacci using DO-WHILE:\n");
+
+    if (n > 0)
+    {
+        do
+        {
+            printf("%d ", a);
+
+            c = a + b;
+            a = b;
+            b = c;
+
+            i++;
+
+        } while (i <= n);
+    }
+
+    printf("\n");
+}
+
+// ============================================================
+// 18. 5 TABLE
+// ============================================================
+
+void tableFor()
+{
+    printf("5 Table using FOR:\n");
+
+    for (int i = 1; i <= 10; i++)
+        printf("%d * 5 = %d\n", i, i * 5);
+}
+
+void tableWhile()
+{
+    printf("5 Table using WHILE:\n");
+
+    int i = 1;
+
+    while (i <= 10)
+    {
+        printf("%d * 5 = %d\n", i, i * 5);
+        i++;
+    }
+}
+
+void tableDoWhile()
+{
+    printf("5 Table using DO-WHILE:\n");
+
+    int i = 1;
+
+    do
+    {
+        printf("%d * 5 = %d\n", i, i * 5);
+        i++;
+
+    } while (i <= 10);
+}
+
+// ============================================================
+// 19. SUM OF DIGITS
+// ============================================================
+
+int sumDigitsFor(int n)
+{
+    int sum = 0;
+
+    if (n < 0)
+        n = -n;
+
+    if (n == 0)
+        return 0;
+
+    for (; n != 0; n /= 10)
+        sum += n % 10;
+
+    return sum;
+}
+
+int sumDigitsWhile(int n)
+{
+    int sum = 0;
+
+    if (n < 0)
+        n = -n;
+
+    while (n != 0)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+
+    return sum;
+}
+
+int sumDigitsDoWhile(int n)
+{
+    int sum = 0;
+
+    if (n < 0)
+        n = -n;
+
+    do
+    {
+        sum += n % 10;
+        n /= 10;
+
+    } while (n != 0);
+
+    return sum;
+}
+
+// ============================================================
+// 20. PALINDROME OR NOT
+// ============================================================
+
+int palindromeFor(char str[])
+{
+    int len = strlen(str);
+
+    for (int i = 0; i < len / 2; i++)
+    {
+        if (str[i] != str[len - i - 1])
+            return 0;
+    }
+
+    return 1;
+}
+
+int palindromeWhile(char str[])
+{
+    int len = strlen(str);
+    int i = 0;
+
+    while (i < len / 2)
+    {
+        if (str[i] != str[len - i - 1])
+            return 0;
+
+        i++;
+    }
+
+    return 1;
+}
+
+int palindromeDoWhile(char str[])
+{
+    int len = strlen(str);
+    int i = 0;
+
+    if (len == 0)
+        return 1;
+
+    do
+    {
+        if (str[i] != str[len - i - 1])
+            return 0;
+
+        i++;
+
+    } while (i < len / 2);
+
+    return 1;
+}
+
+// ============================================================
+// MAIN FUNCTION
+// ============================================================
+
+int main()
+{
+    int n, limit;
+    char str[100];
+
+    // 12. Factorial
+    printf("\n========== 12. FACTORIAL ==========\n");
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    factorialFor(n);
+    factorialWhile(n);
+    factorialDoWhile(n);
+
+
+    // 13. Prime or Not
+    printf("\n========== 13. PRIME OR NOT ==========\n");
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("FOR: ");
+    if (isPrimeFor(n))
+        printf("%d is Prime\n", n);
+    else
+        printf("%d is Not Prime\n", n);
+
+    printf("WHILE: ");
+    if (isPrimeWhile(n))
+        printf("%d is Prime\n", n);
+    else
+        printf("%d is Not Prime\n", n);
+
+    printf("DO-WHILE: ");
+    if (isPrimeDoWhile(n))
+        printf("%d is Prime\n", n);
+    else
+        printf("%d is Not Prime\n", n);
+
+
+    // 14. Prime Series
+    printf("\n========== 14. PRIME SERIES ==========\n");
+    printf("Enter limit: ");
+    scanf("%d", &limit);
+
+    primeSeriesFor(limit);
+    primeSeriesWhile(limit);
+    primeSeriesDoWhile(limit);
+
+
+    // 15. Armstrong or Not
+    printf("\n========== 15. ARMSTRONG OR NOT ==========\n");
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("FOR: ");
+    printf(isArmstrongFor(n)
+               ? "%d is Armstrong\n"
+               : "%d is Not Armstrong\n",
+           n);
+
+    printf("WHILE: ");
+    printf(isArmstrongWhile(n)
+               ? "%d is Armstrong\n"
+               : "%d is Not Armstrong\n",
+           n);
+
+    printf("DO-WHILE: ");
+    printf(isArmstrongDoWhile(n)
+               ? "%d is Armstrong\n"
+               : "%d is Not Armstrong\n",
+           n);
+
+
+    // 16. Armstrong Series
+    printf("\n========== 16. ARMSTRONG SERIES ==========\n");
+    printf("Enter limit: ");
+    scanf("%d", &limit);
+
+    armstrongSeriesFor(limit);
+    armstrongSeriesWhile(limit);
+    armstrongSeriesDoWhile(limit);
+
+
+    // 17. Fibonacci
+    printf("\n========== 17. FIBONACCI SERIES ==========\n");
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+
+    fibonacciFor(n);
+    fibonacciWhile(n);
+    fibonacciDoWhile(n);
+
+
+    // 18. 5 Table
+    printf("\n========== 18. 5 TABLE ==========\n");
+
+    tableFor();
+    tableWhile();
+    tableDoWhile();
+
+
+    // 19. Sum of Digits
+    printf("\n========== 19. SUM OF DIGITS ==========\n");
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("FOR = %d\n", sumDigitsFor(n));
+    printf("WHILE = %d\n", sumDigitsWhile(n));
+    printf("DO-WHILE = %d\n", sumDigitsDoWhile(n));
+
+
+    // 20. Palindrome
+    printf("\n========== 20. PALINDROME ==========\n");
+    printf("Enter a word: ");
+    scanf("%s", str);
+
+    printf("FOR: ");
+    if (palindromeFor(str))
+        printf("%s is a Palindrome\n", str);
+    else
+        printf("%s is Not a Palindrome\n", str);
+
+    printf("WHILE: ");
+    if (palindromeWhile(str))
+        printf("%s is a Palindrome\n", str);
+    else
+        printf("%s is Not a Palindrome\n", str);
+
+    printf("DO-WHILE: ");
+    if (palindromeDoWhile(str))
+        printf("%s is a Palindrome\n", str);
+    else
+        printf("%s is Not a Palindrome\n", str);
+
+
+    return 0;
+}
+```
