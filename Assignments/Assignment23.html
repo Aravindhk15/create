@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Array Programs</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .program {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        pre {
+            background-color: #eeeeee;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Array Programs</h1>
+
+
+    <!-- ================================================= -->
+    <!-- 1. PUSH, POP, SHIFT, UNSHIFT -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>1. Push, Pop, Shift, Unshift</h2>
+
+        <button onclick="program1()">
+            Run Program
+        </button>
+
+        <pre id="output1"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 2. PRINT ARRAY USING FOR LOOP -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>2. Print All Elements Using For Loop</h2>
+
+        <button onclick="program2()">
+            Run Program
+        </button>
+
+        <pre id="output2"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 3. MAP -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>3. Map - Double All Numbers</h2>
+
+        <button onclick="program3()">
+            Run Program
+        </button>
+
+        <pre id="output3"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 4. FILTER -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>4. Filter - Get Even Numbers</h2>
+
+        <button onclick="program4()">
+            Run Program
+        </button>
+
+        <pre id="output4"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 5. REDUCE -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>5. Reduce - Find Sum</h2>
+
+        <button onclick="program5()">
+            Run Program
+        </button>
+
+        <pre id="output5"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 6. FIND -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>6. Find First Number Greater Than 10</h2>
+
+        <button onclick="program6()">
+            Run Program
+        </button>
+
+        <pre id="output6"></pre>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- 7. INCLUDES -->
+    <!-- ================================================= -->
+
+    <div class="program">
+
+        <h2>7. Check If Array Includes a Value</h2>
+
+        <input
+            type="number"
+            id="searchValue"
+            placeholder="Enter value to search"
+        >
+
+        <button onclick="program7()">
+            Run Program
+        </button>
+
+        <pre id="output7"></pre>
+
+    </div>
+
+
+
+    <script>
+
+        // =====================================================
+        // 1. PUSH, POP, SHIFT, UNSHIFT
+        // =====================================================
+
+        const program1 = () => {
+
+            let numbers = [10, 20, 30];
+
+            let result = "";
+
+            result += "Original Array:\n";
+            result += numbers + "\n\n";
+
+
+            // PUSH
+            numbers.push(40);
+
+            result += "After push(40):\n";
+            result += numbers + "\n\n";
+
+
+            // POP
+            let removedPop = numbers.pop();
+
+            result += "After pop():\n";
+            result += numbers + "\n";
+
+            result += "Removed Element: "
+                    + removedPop + "\n\n";
+
+
+            // UNSHIFT
+            numbers.unshift(5);
+
+            result += "After unshift(5):\n";
+            result += numbers + "\n\n";
+
+
+            // SHIFT
+            let removedShift = numbers.shift();
+
+            result += "After shift():\n";
+            result += numbers + "\n";
+
+            result += "Removed Element: "
+                    + removedShift;
+
+
+            document.getElementById("output1").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 2. PRINT ALL ARRAY ELEMENTS USING FOR LOOP
+        // =====================================================
+
+        const program2 = () => {
+
+            let numbers = [10, 20, 30, 40, 50];
+
+            let result = "Array Elements:\n";
+
+            for (let i = 0; i < numbers.length; i++) {
+
+                result += numbers[i] + "\n";
+            }
+
+            document.getElementById("output2").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 3. MAP - DOUBLE ALL NUMBERS
+        // =====================================================
+
+        const program3 = () => {
+
+            let numbers = [1, 2, 3, 4, 5];
+
+            let doubled = numbers.map(
+                number => number * 2
+            );
+
+            let result = "";
+
+            result += "Original Array:\n";
+            result += numbers + "\n\n";
+
+            result += "After map (Double):\n";
+            result += doubled;
+
+
+            document.getElementById("output3").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 4. FILTER - EVEN NUMBERS
+        // =====================================================
+
+        const program4 = () => {
+
+            let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+            let evenNumbers = numbers.filter(
+                number => number % 2 === 0
+            );
+
+            let result = "";
+
+            result += "Original Array:\n";
+            result += numbers + "\n\n";
+
+            result += "Even Numbers:\n";
+            result += evenNumbers;
+
+
+            document.getElementById("output4").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 5. REDUCE - SUM OF ARRAY
+        // =====================================================
+
+        const program5 = () => {
+
+            let numbers = [10, 20, 30, 40, 50];
+
+            let sum = numbers.reduce(
+                (total, number) => total + number,
+                0
+            );
+
+            let result = "";
+
+            result += "Array:\n";
+            result += numbers + "\n\n";
+
+            result += "Sum = " + sum;
+
+
+            document.getElementById("output5").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 6. FIND - FIRST NUMBER GREATER THAN 10
+        // =====================================================
+
+        const program6 = () => {
+
+            let numbers = [5, 8, 12, 15, 20, 25];
+
+            let resultNumber = numbers.find(
+                number => number > 10
+            );
+
+            let result = "";
+
+            result += "Array:\n";
+            result += numbers + "\n\n";
+
+            result += "First number greater than 10:\n";
+            result += resultNumber;
+
+
+            document.getElementById("output6").textContent = result;
+        };
+
+
+
+        // =====================================================
+        // 7. INCLUDES - CHECK SPECIFIC VALUE
+        // =====================================================
+
+        const program7 = () => {
+
+            let numbers = [10, 20, 30, 40, 50];
+
+            let value = Number(
+                document.getElementById("searchValue").value
+            );
+
+            let result = "";
+
+            result += "Array:\n";
+            result += numbers + "\n\n";
+
+            result += "Searching for: " + value + "\n\n";
+
+
+            if (numbers.includes(value)) {
+
+                result += value + " is present in the array.";
+
+            } else {
+
+                result += value + " is not present in the array.";
+            }
+
+
+            document.getElementById("output7").textContent = result;
+        };
+
+    </script>
+
+</body>
+
+</html>
+

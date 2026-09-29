@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>JavaScript Programs 12 - 20</title>
+    <title>Loop Programs - Arrow Functions</title>
 
     <style>
         body {
@@ -34,17 +34,17 @@
         input {
             padding: 10px;
             margin: 5px;
-            width: 200px;
+            width: 220px;
         }
 
         button {
             padding: 10px 20px;
-            background-color: #333;
-            color: white;
+            margin: 5px;
             border: none;
             border-radius: 5px;
+            background-color: #333;
+            color: white;
             cursor: pointer;
-            margin: 5px;
         }
 
         button:hover {
@@ -52,7 +52,7 @@
         }
 
         pre {
-            background-color: #eeeeee;
+            background-color: #eee;
             padding: 15px;
             border-radius: 5px;
             white-space: pre-wrap;
@@ -62,184 +62,185 @@
 
 <body>
 
-    <h1>JavaScript Programs 12 - 20</h1>
+    <h1>JavaScript Loop Programs Using Arrow Functions</h1>
 
 
-    <!-- ================================================= -->
     <!-- 12. FACTORIAL -->
-    <!-- ================================================= -->
-
     <div class="program">
 
         <h2>12. Factorial of a Given Number</h2>
 
         <p>Example: 5! = 5 × 4 × 3 × 2 × 1 = 120</p>
 
-        <input type="number" id="factorialNumber" placeholder="Enter number">
+        <input type="number" id="factorialNumber"
+               placeholder="Enter number">
 
-        <button onclick="program12()">Run Program</button>
+        <button onclick="program12()">
+            Run Program
+        </button>
 
         <pre id="output12"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
     <!-- 13. PRIME CHECK -->
-    <!-- ================================================= -->
-
     <div class="program">
 
-        <h2>13. Check Whether Number is Prime or Not</h2>
+        <h2>13. Prime Number Check</h2>
 
-        <input type="number" id="primeNumber" placeholder="Enter number">
+        <input type="number" id="primeNumber"
+               placeholder="Enter number">
 
-        <button onclick="program13()">Run Program</button>
+        <button onclick="program13()">
+            Run Program
+        </button>
 
         <pre id="output13"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
-    <!-- 14. PRIME NUMBER SERIES -->
-    <!-- ================================================= -->
-
+    <!-- 14. PRIME SERIES -->
     <div class="program">
 
-        <h2>14. Print Prime Number Series</h2>
+        <h2>14. Prime Number Series</h2>
 
-        <input type="number" id="primeLimit" placeholder="Enter limit">
+        <input type="number" id="primeLimit"
+               placeholder="Enter limit">
 
-        <button onclick="program14()">Run Program</button>
+        <button onclick="program14()">
+            Run Program
+        </button>
 
         <pre id="output14"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
     <!-- 15. ARMSTRONG CHECK -->
-    <!-- ================================================= -->
-
     <div class="program">
 
-        <h2>15. Check Armstrong Number</h2>
+        <h2>15. Armstrong Number Check</h2>
 
         <p>Example: 153 = 1³ + 5³ + 3³ = 153</p>
 
-        <input type="number" id="armstrongNumber" placeholder="Enter number">
+        <input type="number" id="armstrongNumber"
+               placeholder="Enter number">
 
-        <button onclick="program15()">Run Program</button>
+        <button onclick="program15()">
+            Run Program
+        </button>
 
         <pre id="output15"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
     <!-- 16. ARMSTRONG SERIES -->
-    <!-- ================================================= -->
-
     <div class="program">
 
-        <h2>16. Print Armstrong Number Series</h2>
+        <h2>16. Armstrong Number Series</h2>
 
-        <input type="number" id="armstrongLimit" placeholder="Enter limit">
+        <input type="number" id="armstrongLimit"
+               placeholder="Enter limit">
 
-        <button onclick="program16()">Run Program</button>
+        <button onclick="program16()">
+            Run Program
+        </button>
 
         <pre id="output16"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
-    <!-- 17. FIBONACCI SERIES -->
-    <!-- ================================================= -->
-
+    <!-- 17. FIBONACCI -->
     <div class="program">
 
         <h2>17. Fibonacci Series</h2>
 
-        <p>Example: 0 1 1 2 3 5 8 13...</p>
+        <p>0 1 1 2 3 5 8 13...</p>
 
-        <input type="number" id="fibonacciNumber" placeholder="Number of terms">
+        <input type="number" id="fibonacciNumber"
+               placeholder="Number of terms">
 
-        <button onclick="program17()">Run Program</button>
+        <button onclick="program17()">
+            Run Program
+        </button>
 
         <pre id="output17"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
-    <!-- 18. TABLE OF 5 -->
-    <!-- ================================================= -->
-
+    <!-- 18. TABLE -->
     <div class="program">
 
         <h2>18. Multiplication Table of 5</h2>
 
-        <button onclick="program18()">Run Program</button>
+        <button onclick="program18()">
+            Run Program
+        </button>
 
         <pre id="output18"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
     <!-- 19. SUM OF DIGITS -->
-    <!-- ================================================= -->
-
     <div class="program">
 
         <h2>19. Sum of Digits</h2>
 
         <p>Example: 123 → 1 + 2 + 3 = 6</p>
 
-        <input type="number" id="digitNumber" placeholder="Enter number">
+        <input type="number" id="digitNumber"
+               placeholder="Enter number">
 
-        <button onclick="program19()">Run Program</button>
+        <button onclick="program19()">
+            Run Program
+        </button>
 
         <pre id="output19"></pre>
 
     </div>
 
 
-    <!-- ================================================= -->
     <!-- 20. PALINDROME -->
-    <!-- ================================================= -->
-
     <div class="program">
 
-        <h2>20. Palindrome or Not</h2>
+        <h2>20. Palindrome Check</h2>
 
         <p>Examples: BAAB, MALAYALAM, MADAM</p>
 
-        <input type="text" id="palindromeText" placeholder="Enter word">
+        <input type="text" id="palindromeText"
+               placeholder="Enter word">
 
-        <button onclick="program20()">Run Program</button>
+        <button onclick="program20()">
+            Run Program
+        </button>
 
         <pre id="output20"></pre>
 
     </div>
 
 
-
     <script>
 
         // =====================================================
         // 12. FACTORIAL
+        // Arrow Function
         // =====================================================
 
-        function program12() {
+        const program12 = () => {
 
-            let n = Number(document.getElementById("factorialNumber").value);
+            let n = Number(
+                document.getElementById("factorialNumber").value
+            );
 
             let result = "";
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let factFor = 1;
 
@@ -251,7 +252,7 @@
             result += n + "! = " + factFor;
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             let factWhile = 1;
             let i = 1;
@@ -265,14 +266,12 @@
             result += n + "! = " + factWhile;
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             let factDo = 1;
             i = 1;
 
-            if (n === 0) {
-                factDo = 1;
-            } else {
+            if (n > 0) {
 
                 do {
                     factDo = factDo * i;
@@ -286,22 +285,24 @@
 
 
             document.getElementById("output12").textContent = result;
-        }
+        };
 
 
 
         // =====================================================
-        // 13. PRIME NUMBER CHECK
+        // 13. PRIME CHECK
         // =====================================================
 
-        function program13() {
+        const program13 = () => {
 
-            let n = Number(document.getElementById("primeNumber").value);
+            let n = Number(
+                document.getElementById("primeNumber").value
+            );
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let countFor = 0;
 
@@ -310,19 +311,18 @@
                 if (n % i === 0) {
                     countFor++;
                 }
-
             }
 
             result += "FOR LOOP:\n";
 
             if (countFor === 2) {
-                result += n + " is a Prime Number";
+                result += n + " is Prime";
             } else {
-                result += n + " is Not a Prime Number";
+                result += n + " is Not Prime";
             }
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             let countWhile = 0;
             let i = 1;
@@ -339,13 +339,13 @@
             result += "\n\nWHILE LOOP:\n";
 
             if (countWhile === 2) {
-                result += n + " is a Prime Number";
+                result += n + " is Prime";
             } else {
-                result += n + " is Not a Prime Number";
+                result += n + " is Not Prime";
             }
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             let countDo = 0;
             i = 1;
@@ -367,14 +367,14 @@
             result += "\n\nDO WHILE LOOP:\n";
 
             if (countDo === 2) {
-                result += n + " is a Prime Number";
+                result += n + " is Prime";
             } else {
-                result += n + " is Not a Prime Number";
+                result += n + " is Not Prime";
             }
 
 
             document.getElementById("output13").textContent = result;
-        }
+        };
 
 
 
@@ -382,16 +382,18 @@
         // 14. PRIME NUMBER SERIES
         // =====================================================
 
-        function program14() {
+        const program14 = () => {
 
-            let limit = Number(document.getElementById("primeLimit").value);
+            let limit = Number(
+                document.getElementById("primeLimit").value
+            );
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
-            let primesFor = "";
+            let forSeries = "";
 
             for (let n = 2; n <= limit; n++) {
 
@@ -402,21 +404,20 @@
                     if (n % i === 0) {
                         count++;
                     }
-
                 }
 
                 if (count === 2) {
-                    primesFor += n + " ";
+                    forSeries += n + " ";
                 }
             }
 
             result += "FOR LOOP:\n";
-            result += primesFor;
+            result += forSeries;
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
-            let primesWhile = "";
+            let whileSeries = "";
             let n = 2;
 
             while (n <= limit) {
@@ -434,19 +435,19 @@
                 }
 
                 if (count === 2) {
-                    primesWhile += n + " ";
+                    whileSeries += n + " ";
                 }
 
                 n++;
             }
 
             result += "\n\nWHILE LOOP:\n";
-            result += primesWhile;
+            result += whileSeries;
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
-            let primesDo = "";
+            let doSeries = "";
             n = 2;
 
             if (limit >= 2) {
@@ -467,39 +468,41 @@
                     } while (i <= n);
 
                     if (count === 2) {
-                        primesDo += n + " ";
+                        doSeries += n + " ";
                     }
 
                     n++;
 
                 } while (n <= limit);
-
             }
 
             result += "\n\nDO WHILE LOOP:\n";
-            result += primesDo;
+            result += doSeries;
 
 
             document.getElementById("output14").textContent = result;
-        }
+        };
 
 
 
         // =====================================================
-        // 15. ARMSTRONG NUMBER CHECK
+        // 15. ARMSTRONG CHECK
         // =====================================================
 
-        function program15() {
+        const program15 = () => {
 
-            let n = Number(document.getElementById("armstrongNumber").value);
+            let n = Number(
+                document.getElementById("armstrongNumber").value
+            );
+
+            let digits = String(n).length;
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let temp = n;
-            let digits = String(n).length;
             let sumFor = 0;
 
             for (; temp > 0; temp = Math.floor(temp / 10)) {
@@ -512,15 +515,16 @@
             result += "FOR LOOP:\n";
 
             if (sumFor === n) {
-                result += n + " is an Armstrong Number";
+                result += n + " is Armstrong";
             } else {
-                result += n + " is Not an Armstrong Number";
+                result += n + " is Not Armstrong";
             }
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             temp = n;
+
             let sumWhile = 0;
 
             while (temp > 0) {
@@ -535,19 +539,22 @@
             result += "\n\nWHILE LOOP:\n";
 
             if (sumWhile === n) {
-                result += n + " is an Armstrong Number";
+                result += n + " is Armstrong";
             } else {
-                result += n + " is Not an Armstrong Number";
+                result += n + " is Not Armstrong";
             }
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             temp = n;
+
             let sumDo = 0;
 
             if (n === 0) {
+
                 sumDo = 0;
+
             } else {
 
                 do {
@@ -559,37 +566,38 @@
                     temp = Math.floor(temp / 10);
 
                 } while (temp > 0);
-
             }
 
             result += "\n\nDO WHILE LOOP:\n";
 
             if (sumDo === n) {
-                result += n + " is an Armstrong Number";
+                result += n + " is Armstrong";
             } else {
-                result += n + " is Not an Armstrong Number";
+                result += n + " is Not Armstrong";
             }
 
 
             document.getElementById("output15").textContent = result;
-        }
+        };
 
 
 
         // =====================================================
-        // 16. ARMSTRONG NUMBER SERIES
+        // 16. ARMSTRONG SERIES
         // =====================================================
 
-        function program16() {
+        const program16 = () => {
 
-            let limit = Number(document.getElementById("armstrongLimit").value);
+            let limit = Number(
+                document.getElementById("armstrongLimit").value
+            );
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
-            let seriesFor = "";
+            let forSeries = "";
 
             for (let n = 0; n <= limit; n++) {
 
@@ -605,18 +613,17 @@
                 }
 
                 if (sum === n) {
-                    seriesFor += n + " ";
+                    forSeries += n + " ";
                 }
-
             }
 
             result += "FOR LOOP:\n";
-            result += seriesFor;
+            result += forSeries;
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
-            let seriesWhile = "";
+            let whileSeries = "";
             let n = 0;
 
             while (n <= limit) {
@@ -635,19 +642,19 @@
                 }
 
                 if (sum === n) {
-                    seriesWhile += n + " ";
+                    whileSeries += n + " ";
                 }
 
                 n++;
             }
 
             result += "\n\nWHILE LOOP:\n";
-            result += seriesWhile;
+            result += whileSeries;
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
-            let seriesDo = "";
+            let doSeries = "";
             n = 0;
 
             do {
@@ -657,7 +664,9 @@
                 let sum = 0;
 
                 if (n === 0) {
+
                     sum = 0;
+
                 } else {
 
                     do {
@@ -669,11 +678,10 @@
                         temp = Math.floor(temp / 10);
 
                     } while (temp > 0);
-
                 }
 
                 if (sum === n) {
-                    seriesDo += n + " ";
+                    doSeries += n + " ";
                 }
 
                 n++;
@@ -682,11 +690,11 @@
 
 
             result += "\n\nDO WHILE LOOP:\n";
-            result += seriesDo;
+            result += doSeries;
 
 
             document.getElementById("output16").textContent = result;
-        }
+        };
 
 
 
@@ -694,22 +702,24 @@
         // 17. FIBONACCI SERIES
         // =====================================================
 
-        function program17() {
+        const program17 = () => {
 
-            let terms = Number(document.getElementById("fibonacciNumber").value);
+            let terms = Number(
+                document.getElementById("fibonacciNumber").value
+            );
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let a = 0;
             let b = 1;
-            let seriesFor = "";
+            let forSeries = "";
 
             for (let i = 1; i <= terms; i++) {
 
-                seriesFor += a + " ";
+                forSeries += a + " ";
 
                 let next = a + b;
 
@@ -718,20 +728,20 @@
             }
 
             result += "FOR LOOP:\n";
-            result += seriesFor;
+            result += forSeries;
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             a = 0;
             b = 1;
 
-            let seriesWhile = "";
+            let whileSeries = "";
             let i = 1;
 
             while (i <= terms) {
 
-                seriesWhile += a + " ";
+                whileSeries += a + " ";
 
                 let next = a + b;
 
@@ -742,22 +752,22 @@
             }
 
             result += "\n\nWHILE LOOP:\n";
-            result += seriesWhile;
+            result += whileSeries;
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             a = 0;
             b = 1;
 
-            let seriesDo = "";
+            let doSeries = "";
             i = 1;
 
             if (terms > 0) {
 
                 do {
 
-                    seriesDo += a + " ";
+                    doSeries += a + " ";
 
                     let next = a + b;
 
@@ -767,28 +777,27 @@
                     i++;
 
                 } while (i <= terms);
-
             }
 
             result += "\n\nDO WHILE LOOP:\n";
-            result += seriesDo;
+            result += doSeries;
 
 
             document.getElementById("output17").textContent = result;
-        }
+        };
 
 
 
         // =====================================================
-        // 18. MULTIPLICATION TABLE OF 5
+        // 18. TABLE OF 5
         // =====================================================
 
-        function program18() {
+        const program18 = () => {
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             result += "FOR LOOP:\n";
 
@@ -798,7 +807,7 @@
             }
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             result += "\nWHILE LOOP:\n";
 
@@ -812,7 +821,7 @@
             }
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             result += "\nDO WHILE LOOP:\n";
 
@@ -828,7 +837,7 @@
 
 
             document.getElementById("output18").textContent = result;
-        }
+        };
 
 
 
@@ -836,14 +845,16 @@
         // 19. SUM OF DIGITS
         // =====================================================
 
-        function program19() {
+        const program19 = () => {
 
-            let n = Number(document.getElementById("digitNumber").value);
+            let n = Number(
+                document.getElementById("digitNumber").value
+            );
 
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let temp = Math.abs(n);
             let sumFor = 0;
@@ -854,10 +865,10 @@
             }
 
             result += "FOR LOOP:\n";
-            result += "Sum of digits = " + sumFor;
+            result += "Sum = " + sumFor;
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             temp = Math.abs(n);
 
@@ -871,20 +882,16 @@
             }
 
             result += "\n\nWHILE LOOP:\n";
-            result += "Sum of digits = " + sumWhile;
+            result += "Sum = " + sumWhile;
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             temp = Math.abs(n);
 
             let sumDo = 0;
 
-            if (temp === 0) {
-
-                sumDo = 0;
-
-            } else {
+            if (temp > 0) {
 
                 do {
 
@@ -893,15 +900,14 @@
                     temp = Math.floor(temp / 10);
 
                 } while (temp > 0);
-
             }
 
             result += "\n\nDO WHILE LOOP:\n";
-            result += "Sum of digits = " + sumDo;
+            result += "Sum = " + sumDo;
 
 
             document.getElementById("output19").textContent = result;
-        }
+        };
 
 
 
@@ -909,7 +915,7 @@
         // 20. PALINDROME
         // =====================================================
 
-        function program20() {
+        const program20 = () => {
 
             let text = document.getElementById("palindromeText").value;
 
@@ -918,7 +924,7 @@
             let result = "";
 
 
-            // ---------------- FOR LOOP ----------------
+            // FOR LOOP
 
             let reverseFor = "";
 
@@ -930,13 +936,13 @@
             result += "FOR LOOP:\n";
 
             if (text === reverseFor) {
-                result += text + " is a Palindrome";
+                result += text + " is Palindrome";
             } else {
-                result += text + " is Not a Palindrome";
+                result += text + " is Not Palindrome";
             }
 
 
-            // ---------------- WHILE LOOP ----------------
+            // WHILE LOOP
 
             let reverseWhile = "";
 
@@ -952,13 +958,13 @@
             result += "\n\nWHILE LOOP:\n";
 
             if (text === reverseWhile) {
-                result += text + " is a Palindrome";
+                result += text + " is Palindrome";
             } else {
-                result += text + " is Not a Palindrome";
+                result += text + " is Not Palindrome";
             }
 
 
-            // ---------------- DO WHILE LOOP ----------------
+            // DO WHILE LOOP
 
             let reverseDo = "";
 
@@ -973,20 +979,19 @@
                     i--;
 
                 } while (i >= 0);
-
             }
 
             result += "\n\nDO WHILE LOOP:\n";
 
             if (text === reverseDo) {
-                result += text + " is a Palindrome";
+                result += text + " is Palindrome";
             } else {
-                result += text + " is Not a Palindrome";
+                result += text + " is Not Palindrome";
             }
 
 
             document.getElementById("output20").textContent = result;
-        }
+        };
 
     </script>
 
