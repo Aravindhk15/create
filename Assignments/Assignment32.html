@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise and Async Await</title>
+</head>
+<body>
+
+    <h1>JavaScript Promise and Async Await Tasks</h1>
+    <h3>Open Console (F12) to see all outputs</h3>
+
+    <script>
+
+    // =========================================
+    //          PROMISE TASKS
+    // =========================================
+
+    // 1. Resolve after 2 seconds
+
+    let promise1 = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("Welcome to Js Promise");
+        }, 2000);
+    });
+
+    promise1.then(result => console.log("1.", result));
+
+
+    // 2. Reject after 3 seconds
+
+    let promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Invalid Data");
+        }, 3000);
+    });
+
+    promise2.catch(error => console.log("2.", error));
+
+
+    // 3. Check Odd Number
+
+    function checkNumber(num) {
+        return new Promise((resolve, reject) => {
+            if (num % 2 !== 0) {
+                resolve("Number is Odd");
+            } else {
+                reject("Number is Even");
+            }
+        });
+    }
+
+    checkNumber(7)
+        .then(result => console.log("3.", result))
+        .catch(error => console.log("3.", error));
+
+
+    // 4. Check Employment Eligibility
+
+    let age = 23;
+
+    let agePromise = new Promise((resolve, reject) => {
+        if (age >= 18) {
+            resolve("Eligible for Employement");
+        } else {
+            reject("Not eligible for Employement");
+        }
+    });
+
+    agePromise
+        .then(result => console.log("4.", result))
+        .catch(error => console.log("4.", error));
+
+
+    // 5. Sum using Promise
+
+    function Sum(a, b) {
+        return new Promise((resolve, reject) => {
+            if (b < 0) {
+                reject("B should not be negative");
+            } else {
+                resolve(a + b);
+            }
+        });
+    }
+
+    Sum(10, 20)
+        .then(result => console.log("5. Sum =", result))
+        .catch(error => console.log("5.", error));
+
+
+    // 6. Food Ordering
+
+    let foodOrder = new Promise((resolve) => {
+        console.log("6. Order placed");
+
+        setTimeout(() => {
+            resolve("Food is ready");
+        }, 5000);
+    });
+
+    foodOrder.then(result => console.log("6.", result));
+
+
+    // 7. Check Empty String
+
+    function checkString(str) {
+        return new Promise((resolve, reject) => {
+            if (str.length > 0) {
+                resolve("String contains characters");
+            } else {
+                reject("String is empty");
+            }
+        });
+    }
+
+    checkString("Hello")
+        .then(result => console.log("7.", result))
+        .catch(error => console.log("7.", error));
+
+
+    // 8. Find Even Number
+
+    function findEven(num) {
+        return new Promise((resolve, reject) => {
+            if (num % 2 === 0) {
+                resolve("Number is Even");
+            } else {
+                reject("Number is Odd");
+            }
+        });
+    }
+
+    findEven(10)
+        .then(result => console.log("8.", result))
+        .catch(error => console.log("8.", error));
+
+
+    // 9. Promise.all()
+
+    let p1 = new Promise(resolve => {
+        setTimeout(() => resolve("Promise 1 Completed"), 1000);
+    });
+
+    let p2 = new Promise(resolve => {
+        setTimeout(() => resolve("Promise 2 Completed"), 2000);
+    });
+
+    let p3 = new Promise(resolve => {
+        setTimeout(() => resolve("Promise 3 Completed"), 3000);
+    });
+
+    Promise.all([p1, p2, p3])
+        .then(result => console.log("9.", result));
+
+
+    // 10. Promise.race()
+
+    let race1 = new Promise(resolve => {
+        setTimeout(() => resolve("Promise 1 Resolved"), 3000);
+    });
+
+    let race2 = new Promise(resolve => {
+        setTimeout(() => resolve("Promise 2 Resolved"), 1000);
+    });
+
+    let race3 = new Promise((resolve, reject) => {
+        setTimeout(() => reject("Promise 3 Rejected"), 2000);
+    });
+
+    Promise.race([race1, race2, race3])
+        .then(result => console.log("10.", result))
+        .catch(error => console.log("10.", error));
+
+
+    // =========================================
+    //          ASYNC AND AWAIT TASKS
+    // =========================================
+
+    // Common Delay Function
+
+    function delay(ms) {
+        return new Promise(resolve => {
+            setTimeout(resolve, ms);
+        });
+    }
+
+
+    // TASK 1: Basic Async Function
+
+    async function basicAsync() {
+        await delay(2000);
+        return "Welcome to Async and Await";
+    }
+
+    async function task1() {
+        let result = await basicAsync();
+        console.log("Task 1:", result);
+    }
+
+    task1();
+
+
+    // TASK 2: Fetch User Data
+
+    function getUser() {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve({
+                    id: 1,
+                    name: "Rahul",
+                    email: "rahul@gmail.com"
+                });
+            }, 1500);
+        });
+    }
+
+    async function task2() {
+        let user = await getUser();
+
+        console.log("Task 2:");
+        console.log("User Name:", user.name);
+        console.log("Email:", user.email);
+    }
+
+    task2();
+
+
+    // TASK 3: Try Catch Login
+
+    async function loginUser(isLoggedIn) {
+        if (isLoggedIn) {
+            return "Login successful";
+        } else {
+            throw new Error("Invalid credentials");
+        }
+    }
+
+    async function task3() {
+        try {
+            let result = await loginUser(false);
+            console.log("Task 3:", result);
+        } catch (error) {
+            console.log("Task 3:", error.message);
+        }
+    }
+
+    task3();
+
+
+    // TASK 4: Sequential Async Operations
+
+    async function getOrder() {
+        await delay(1000);
+        return "Order received";
+    }
+
+    async function processOrder() {
+        await delay(1000);
+        return "Order processed";
+    }
+
+    async function deliverOrder() {
+        await delay(1000);
+        return "Order delivered";
+    }
+
+    async function task4() {
+        console.log("Task 4:");
+
+        let order = await getOrder();
+        console.log(order);
+
+        let process = await processOrder();
+        console.log(process);
+
+        let delivery = await deliverOrder();
+        console.log(delivery);
+    }
+
+    task4();
+
+
+    // TASK 5: Fetch Products with Delay
+
+    async function fetchProducts() {
+        console.log("Task 5: Loading products...");
+
+        await delay(2000);
+
+        let products = ["Laptop", "Mobile", "Tablet"];
+
+        console.log("Products List:");
+
+        products.forEach(product => {
+            console.log(product);
+        });
+    }
+
+    fetchProducts();
+
+    </script>
+
+</body>
+</html>
