@@ -1,0 +1,118 @@
+Create Student.jsx
+
+function Student() {
+    return (
+        <div>
+            <h2>Student Details</h2>
+            <p>Name: Vijay</p>
+            <p>Department: Computer Science</p>
+            <p>Year: 2nd Year</p>
+        </div>
+    );
+}
+
+export default Student;
+
+Create LoginStatus.jsx
+
+function LoginStatus() {
+    let isLoggedIn = true;
+
+    if (isLoggedIn) {
+        return <h2>Welcome User!</h2>;
+    } else {
+        return <h2>Please Login</h2>;
+    }
+}
+
+export default LoginStatus;
+
+Create Result.jsx
+
+function Result() {
+    let mark = 75;
+
+    return (
+        <div>
+            <h2>Student Result</h2>
+            <p>Mark: {mark}</p>
+
+            {mark >= 35 ? (
+                <h3>Pass</h3>
+            ) : (
+                <h3>Fail</h3>
+            )}
+        </div>
+    );
+}
+
+export default Result;
+
+Create Product.jsx
+
+function Product() {
+    let isAvailable = false;
+
+    return (
+        <div>
+            <h2>Product Details</h2>
+
+            {isAvailable ? (
+                <h3>Product In Stock</h3>
+            ) : (
+                <h3>Out of Stock</h3>
+            )}
+        </div>
+    );
+}
+
+export default Product;
+
+
+Create AgeCheck.jsx
+
+
+function AgeCheck() {
+    let age = 20;
+
+    if (age >= 18) {
+        return <h2>Eligible to Vote</h2>;
+    } else {
+        return <h2>Not Eligible to Vote</h2>;
+    }
+}
+
+export default AgeCheck;
+
+Call all components inside App.jsx
+
+import Student from './components/Student';
+import LoginStatus from './components/LoginStatus';
+import Result from './components/Result';
+import Product from './components/Product';
+import AgeCheck from './components/AgeCheck';
+
+function App() {
+    return (
+        <div>
+            <h1>React Function Components</h1>
+
+            <hr />
+            <Student />
+
+            <hr />
+            <LoginStatus />
+
+            <hr />
+            <Result />
+
+            <hr />
+            <Product />
+
+            <hr />
+            <AgeCheck />
+        </div>
+    );
+}
+
+export default App;
