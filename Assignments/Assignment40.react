@@ -1,0 +1,126 @@
+
+ProfileCard.jsx — User Profile Card
+
+function ProfileCard(props) {
+    return (
+        <div>
+            <h2>User Profile</h2>
+            <p>Name: {props.name}</p>
+            <p>Age: {props.age}</p>
+            <p>Role: {props.role}</p>
+            {props.children}
+        </div>
+    )
+}
+
+export default ProfileCard;
+
+ Button.jsx — Reusable Button
+
+function Button(props) {
+    let style = {
+        backgroundColor: props.color,
+        color: "white",
+        padding: props.size === "small" ? "5px 10px" :
+                 props.size === "medium" ? "10px 20px" : "15px 30px",
+        border: "none",
+        borderRadius: "5px",
+        margin: "5px"
+    }
+
+    return (
+        <button style={style}>
+            {props.children}
+        </button>
+    )
+}
+
+export default Button;
+
+ Card.jsx — Reusable Card
+
+function Card(props) {
+    return (
+        <div className="card">
+            <h2>{props.title}</h2>
+            {props.children}
+            <h4>{props.footer}</h4>
+        </div>
+    )
+}
+
+export default Card;
+
+ App.jsx — Import and Call All Components
+
+import ProfileCard from './components/ProfileCard'
+import Button from './components/Button'
+import Card from './components/Card'
+import './App.css'
+
+function App() {
+    return (
+        <div>
+            <h1>React Props and Children</h1>
+
+            <h2>1. User Profile Cards</h2>
+
+            <ProfileCard name="John" age={25} role="Developer">
+                <p>Likes React and JavaScript.</p>
+            </ProfileCard>
+
+            <ProfileCard name="Sara" age={22} role="Designer">
+                <p>Likes UI and UX Design.</p>
+            </ProfileCard>
+
+            <ProfileCard name="Mike" age={28} role="Tester">
+                <p>Likes Software Testing.</p>
+            </ProfileCard>
+
+            <hr />
+
+            <h2>2. Reusable Buttons</h2>
+
+            <Button color="blue" size="small">Submit</Button>
+            <Button color="green" size="medium">Login</Button>
+            <Button color="red" size="large">Register</Button>
+
+            <hr />
+
+            <h2>3. Reusable Cards</h2>
+
+            <Card title="Product" footer="₹999">
+                <p>This is a great product.</p>
+            </Card>
+
+            <Card title="About" footer="About Us">
+                <p>We are learning React development.</p>
+            </Card>
+
+            <Card title="Contact" footer="Contact Us">
+                <p>Email: example@gmail.com</p>
+            </Card>
+        </div>
+    )
+}
+
+export default App;
+
+App.css — Basic Card Styling
+
+.card {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 15px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: lightyellow;
+}
+
+.card h2 {
+    color: blue;
+}
+
+.card h4 {
+    color: green;
+}
