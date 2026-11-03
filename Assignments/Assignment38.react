@@ -1,0 +1,68 @@
+Header.jsx
+
+function Header() {
+    return (
+        <h1>Welcome to React Project</h1>
+    )
+}
+
+export default Header;
+Navbar.jsx
+
+function Navbar() {
+    return (
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    )
+}
+
+export default Navbar;
+Student.jsx
+
+function Student() {
+    return (
+        <div>
+            <h2>Student Details</h2>
+            <p>Name: Aravind</p>
+            <p>Department: Computer Science</p>
+        </div>
+    )
+}
+
+export default Student;
+Footer.jsx
+
+function Footer() {
+    return (
+        <footer>
+            <h3>Thank You</h3>
+            <p>Copyright 2026</p>
+        </footer>
+    )
+}
+
+export default Footer;
+STEP 7: Call all components inside App.jsx
+
+Open src/App.jsx, remove the existing code and paste:
+
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import Student from './components/Student'
+import Footer from './components/Footer'
+
+function App() {
+    return (
+        <div>
+            <Header />
+            <Navbar />
+            <Student />
+            <Footer />
+        </div>
+    )
+}
+
+export default App;
