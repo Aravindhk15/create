@@ -1,0 +1,220 @@
+
+import { useState } from 'react'
+import './App.css'
+
+function App() {
+    // Event Handling Task 1: Display input on form submit
+    const [submitName, setSubmitName] = useState("")
+    const [submittedName, setSubmittedName] = useState("")
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        setSubmittedName(submitName)
+    }
+
+    // Event Handling Task 2: Display input on button click
+    const [clickInput, setClickInput] = useState("")
+    const [clickResult, setClickResult] = useState("")
+
+    // Event Handling Task 3: Passing a value to an event
+    const [message, setMessage] = useState("")
+
+    function showMessage(value) {
+        setMessage(value)
+    }
+
+    // Event Handling Task 4: Handle multiple events
+    const [eventMessage, setEventMessage] = useState("")
+
+    // Event Handling Task 5: Display input when focus is lost
+    const [blurInput, setBlurInput] = useState("")
+    const [blurResult, setBlurResult] = useState("")
+
+    // useState Task 1: Multiple employee state variables
+    const [empid, setEmpid] = useState("101")
+    const [empname, setEmpname] = useState("Vijay")
+    const [salary, setSalary] = useState("25000")
+    const [desg, setDesg] = useState("Developer")
+    const [deptno, setDeptno] = useState("10")
+
+    // useState Task 2: Product information using an object
+    const [product, setProduct] = useState({
+        name: "Laptop",
+        price: 50000,
+        quantity: 2
+    })
+
+    function updateProduct() {
+        setProduct({
+            name: "Mobile",
+            price: 20000,
+            quantity: 5
+        })
+    }
+
+    // useState Task 3: Add and delete customer names using an array
+    const [customers, setCustomers] = useState(["Arun", "Bala", "Kumar"])
+    const [newCustomer, setNewCustomer] = useState("")
+
+    function addCustomer() {
+        if (newCustomer.trim() !== "") {
+            setCustomers([...customers, newCustomer])
+            setNewCustomer("")
+        }
+    }
+
+    function deleteCustomer(index) {
+        setCustomers(customers.filter((name, i) => i !== index))
+    }
+
+    return (
+        <div className="container">
+            <h1>React Event Handling and useState</h1>
+
+            <h2>EVENT HANDLING TASKS</h2>
+
+            <section>
+                <h3>1. Display Input on Submit</h3>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        value={submitName}
+                        onChange={(e) => setSubmitName(e.target.value)}
+                        placeholder="Enter your name"
+                    />
+                    <button type="submit">Submit</button>
+                </form>
+                <p>Submitted Name: {submittedName}</p>
+            </section>
+
+            <section>
+                <h3>2. Display Input on Button Click</h3>
+                <input
+                    value={clickInput}
+                    onChange={(e) => setClickInput(e.target.value)}
+                    placeholder="Enter something"
+                />
+                <button onClick={() => setClickResult(clickInput)}>Display</button>
+                <p>Your Input: {clickResult}</p>
+            </section>
+
+            <section>
+                <h3>3. Passing a Value to an Event</h3>
+                <button onClick={() => showMessage("Hello Vijay!")}>
+                    Show Message
+                </button>
+                <p>{message}</p>
+            </section>
+
+            <section>
+                <h3>4. Handle Multiple Events</h3>
+                <button
+                    onClick={() => setEventMessage("Button clicked")}
+                    onMouseOver={() => setEventMessage("Mouse is over the button")}
+                >
+                    Click or Move Mouse Here
+                </button>
+                <p>{eventMessage}</p>
+            </section>
+
+            <section>
+                <h3>5. Display Input When Focus Is Lost</h3>
+                <input
+                    value={blurInput}
+                    onChange={(e) => setBlurInput(e.target.value)}
+                    onBlur={() => setBlurResult(blurInput)}
+                    placeholder="Type and click outside this box"
+                />
+                <p>Input after losing focus: {blurResult}</p>
+            </section>
+
+            <h2>USESTATE HOOK TASKS</h2>
+
+            <section>
+                <h3>1. Employee Details Using Multiple State Variables</h3>
+                <p>Employee ID: {empid}</p>
+                <p>Employee Name: {empname}</p>
+                <p>Salary: {salary}</p>
+                <p>Designation: {desg}</p>
+                <p>Department Number: {deptno}</p>
+                <button onClick={() => {
+                    setEmpid("102")
+                    setEmpname("Arun")
+                    setSalary("30000")
+                    setDesg("Tester")
+                    setDeptno("20")
+                }}>
+                    Change Employee Details
+                </button>
+            </section>
+
+            <section>
+                <h3>2. Product Information Using a State Object</h3>
+                <p>Product Name: {product.name}</p>
+                <p>Price: ₹{product.price}</p>
+                <p>Quantity: {product.quantity}</p>
+                <button onClick={updateProduct}>Change Product Details</button>
+            </section>
+
+            <section>
+                <h3>3. Add and Delete Customer Names Using an Array</h3>
+                <input
+                    value={newCustomer}
+                    onChange={(e) => setNewCustomer(e.target.value)}
+                    placeholder="Enter customer name"
+                />
+                <button onClick={addCustomer}>Add Customer</button>
+
+                <ul>
+                    {customers.map((name, index) => (
+                        <li key={index}>
+                            {name}
+                            <button onClick={() => deleteCustomer(index)}>
+                                Delete
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        </div>
+    )
+}
+
+export default App;
+
+2. App.css — Basic Styling
+
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: darkblue;
+}
+
+h2 {
+    color: darkgreen;
+    margin-top: 30px;
+}
+
+section {
+    border: 1px solid gray;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+input {
+    padding: 8px;
+    margin: 5px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+li {
+    margin: 8px 0;
+}
