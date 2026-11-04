@@ -1,0 +1,161 @@
+
+import React, { useState } from "react";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+    useNavigate
+} from "react-router-dom";
+
+// HOME COMPONENT
+function Home() {
+    return (
+        <div>
+            <h1>Home Page</h1>
+            <p>Welcome to our React Website!</p>
+        </div>
+    );
+}
+
+// ABOUT COMPONENT
+function About() {
+    return (
+        <div>
+            <h1>About Page</h1>
+            <p>This is our React website.</p>
+        </div>
+    );
+}
+
+// CONTACT COMPONENT
+function Contact() {
+    return (
+        <div>
+            <h1>Contact Page</h1>
+            <p>Email: example@gmail.com</p>
+            <p>Phone: 9876543210</p>
+            <p>Address: Chennai, Tamil Nadu</p>
+        </div>
+    );
+}
+
+// PRODUCTS COMPONENT
+function Products() {
+    return (
+        <div>
+            <h1>Our Products</h1>
+
+            <h2>1. Laptop</h2>
+            <p>Price: ₹50,000</p>
+
+            <h2>2. Mobile</h2>
+            <p>Price: ₹20,000</p>
+
+            <h2>3. Headphones</h2>
+            <p>Price: ₹2,000</p>
+        </div>
+    );
+}
+
+// LOGIN COMPONENT
+function Login() {
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const navigate = useNavigate();
+
+    function handleLogin() {
+
+        if (username !== "" && password !== "") {
+            navigate("/dashboard");
+        }
+        else {
+            alert("Please enter username and password");
+        }
+    }
+
+    return (
+        <div>
+            <h1>Login Page</h1>
+
+            <input
+                type="text"
+                placeholder="Enter Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <br /><br />
+
+            <input
+                type="password"
+                placeholder="Enter Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <br /><br />
+
+            <button onClick={handleLogin}>
+                Login
+            </button>
+        </div>
+    );
+}
+
+// DASHBOARD COMPONENT
+function Dashboard() {
+    return (
+        <div>
+            <h1>Welcome to Dashboard</h1>
+            <p>You have successfully logged in!</p>
+        </div>
+    );
+}
+
+// MAIN APP COMPONENT
+function App() {
+
+    return (
+        <BrowserRouter>
+
+            <div>
+
+                <h1>React Router Practice Tasks</h1>
+
+                <nav>
+                    <Link to="/">Home</Link> {" | "}
+                    <Link to="/about">About</Link> {" | "}
+                    <Link to="/contact">Contact</Link> {" | "}
+                    <Link to="/products">Products</Link> {" | "}
+                    <Link to="/login">Login</Link> {" | "}
+                    <Link to="/dashboard">Dashboard</Link>
+                </nav>
+
+                <hr />
+
+                <Routes>
+
+                    <Route path="/" element={<Home />} />
+
+                    <Route path="/about" element={<About />} />
+
+                    <Route path="/contact" element={<Contact />} />
+
+                    <Route path="/products" element={<Products />} />
+
+                    <Route path="/login" element={<Login />} />
+
+                    <Route path="/dashboard" element={<Dashboard />} />
+
+                </Routes>
+
+            </div>
+
+        </BrowserRouter>
+    );
+}
+
+export default App;
