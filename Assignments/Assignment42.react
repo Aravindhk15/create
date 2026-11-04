@@ -1,0 +1,234 @@
+
+import React, { useState } from "react";
+
+function App() {
+
+  // 1. Simple Login Form
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginUser, setLoginUser] = useState("");
+
+  // 2. Student Details
+  const [studentName, setStudentName] = useState("");
+  const [age, setAge] = useState("");
+  const [department, setDepartment] = useState("");
+  const [student, setStudent] = useState(null);
+
+  // 3. Course Selection
+  const [course, setCourse] = useState("");
+
+  // 4. Terms and Conditions
+  const [agree, setAgree] = useState(false);
+
+  // 5. Registration Form
+  const [regName, setRegName] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [registration, setRegistration] = useState(null);
+
+
+  // Login Submit
+  function handleLogin(e) {
+    e.preventDefault();
+    setLoginUser(username);
+  }
+
+  // Student Submit
+  function handleStudent(e) {
+    e.preventDefault();
+
+    setStudent({
+      name: studentName,
+      age: age,
+      department: department
+    });
+  }
+
+  // Registration Submit
+  function handleRegister(e) {
+    e.preventDefault();
+
+    setRegistration({
+      name: regName,
+      email: regEmail
+    });
+  }
+
+
+  return (
+    <div style={{
+      padding: "20px",
+      fontFamily: "Arial",
+      maxWidth: "600px",
+      margin: "auto"
+    }}>
+
+      <h1>React Form Practice</h1>
+
+      <hr />
+
+      {/* 1. Simple Login Form */}
+      <h2>1. Simple Login Form</h2>
+
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <button type="submit">Login</button>
+      </form>
+
+      {loginUser && <h3>Welcome: {loginUser}</h3>}
+
+      <hr />
+
+      {/* 2. Student Details */}
+      <h2>2. Student Details</h2>
+
+      <form onSubmit={handleStudent}>
+        <input
+          type="text"
+          placeholder="Student Name"
+          value={studentName}
+          onChange={(e) => setStudentName(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <input
+          type="number"
+          placeholder="Age"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <input
+          type="text"
+          placeholder="Department"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {student && (
+        <div>
+          <h3>Student Details:</h3>
+          <p>Name: {student.name}</p>
+          <p>Age: {student.age}</p>
+          <p>Department: {student.department}</p>
+        </div>
+      )}
+
+      <hr />
+
+      {/* 3. Course Selection */}
+      <h2>3. Course Selection</h2>
+
+      <select
+        value={course}
+        onChange={(e) => setCourse(e.target.value)}
+      >
+        <option value="">Select Course</option>
+        <option value="React">React</option>
+        <option value=".NET">.NET</option>
+        <option value="Java">Java</option>
+      </select>
+
+      {course && <h3>Selected Course: {course}</h3>}
+
+      <hr />
+
+      {/* 4. Terms and Conditions */}
+      <h2>4. Terms and Conditions</h2>
+
+      <label>
+        <input
+          type="checkbox"
+          checked={agree}
+          onChange={(e) => setAgree(e.target.checked)}
+        />
+        I Agree to Terms and Conditions
+      </label>
+
+      <br /><br />
+
+      <button disabled={!agree}>
+        Submit
+      </button>
+
+      <p>
+        {agree
+          ? "You accepted the terms and conditions."
+          : "Please accept the terms and conditions."}
+      </p>
+
+      <hr />
+
+      {/* 5. Registration Form */}
+      <h2>5. Registration Form</h2>
+
+      <form onSubmit={handleRegister}>
+
+        <input
+          type="text"
+          placeholder="Enter Name"
+          value={regName}
+          onChange={(e) => setRegName(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <input
+          type="email"
+          placeholder="Enter Email"
+          value={regEmail}
+          onChange={(e) => setRegEmail(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <input
+          type="password"
+          placeholder="Enter Password"
+          value={regPassword}
+          onChange={(e) => setRegPassword(e.target.value)}
+          required
+        />
+        <br /><br />
+
+        <button type="submit">Register</button>
+      </form>
+
+      {registration && (
+        <div>
+          <h3>Registration Successful!</h3>
+          <p>Name: {registration.name}</p>
+          <p>Email: {registration.email}</p>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+export default App;
